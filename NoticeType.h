@@ -1,0 +1,19 @@
+#ifndef NOTICETYPE_H
+#define NOTICETYPE_H
+
+enum NoticeType {
+    OPEN,
+    CLOSE,
+    CAPACITY_ALERT,
+    WEATHER_ALERT,
+    PAUSE,
+    RESUME,
+    EVACUATE,
+    ROUTE_CHANGE,
+    SECTOR_CLOSED,
+    CUTOFF_ALERT,
+    SUPPLY_ALERT,
+    HAZARD_ALERT
+};
+
+#endif
