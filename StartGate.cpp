@@ -51,7 +51,18 @@ void StartGate::update(const Notice& notice) {
     throw "Not yet implemented";
 }
 
+/**
+ * @brief Want to admit runner to a batch but checks if back too full or no one to join or not open to start.
+ * @param count Number of runners requesting access/admission
+ * @return true if complete batch was admitted, otherwise false.
+ */
 bool StartGate::admitRunners(int count) {
-    (void) count;
-    throw "Not yet implemented";
+    //conditional capacity rule
+    //no one to start or NOTOpen or bigger than batch
+    if(!isOpenForStart || count < 0 || currentLoad + count > batchSize){
+        return false;
+    }
+    //increment the count
+    currentLoad += count;
+    return true;
 }
