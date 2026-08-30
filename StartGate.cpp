@@ -57,9 +57,20 @@ void StartGate::update(const Notice& notice) {
         case WEATHER_ALERT:
         case PAUSE:
         case SECTOR_CLOSED:
+            isOpenForStart = false;
+            break;
         case RESUME:
+            if(openState){
+                isOpenForStart = true;
+            }
+            break;
         case OPEN:
+            open();
+            break;
+        case CLOSE:
         case EVACUATE:
+            close();
+            break;
         default:
             break;
     }
