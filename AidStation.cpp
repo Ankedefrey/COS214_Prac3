@@ -3,7 +3,6 @@
 #include "Notice.h"
 
 #include <iostream>
-#include <stdexcept>
 
 AidStation::AidStation(const std::string& name,
                        int capacity,
@@ -36,8 +35,19 @@ int AidStation::getCurrentLoad() const {
 }
 
 void AidStation::update(const Notice& notice) {
-    (void) notice;
-    throw "Not yet implemented";
+    switch(notice.getType()){
+        //secure supplies but continue assisting runners
+            //suppliesSecured = true
+            //isServing = true
+        case WEATHER_ALERT:
+        case PAUSE:
+        case SECTOR_CLOSED:
+        case RESUME:
+        case OPEN:
+        case EVACUATE:
+        default:
+            break;
+    }
 }
 
 void AidStation::serveRunner(int unitsUsed) {

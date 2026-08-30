@@ -3,7 +3,6 @@
 #include "Notice.h"
 
 #include <iostream>
-#include <stdexcept>
 
 MedicalTent::MedicalTent(const std::string& name, int beds)
     : EventComponent(name, beds),
@@ -32,6 +31,17 @@ int MedicalTent::getCurrentLoad() const {
 }
 
 void MedicalTent::update(const Notice& notice) {
-    (void) notice;
-    throw "Not yet implemented";
+    switch(notice.getType()){
+        //remains open and increases readiness
+            //emergencyReady = true
+            //isActive = true
+        case WEATHER_ALERT:
+        case PAUSE:
+        case SECTOR_CLOSED:
+        case RESUME:
+        case OPEN:
+        case EVACUATE:
+        default:
+            break;
+    }
 }

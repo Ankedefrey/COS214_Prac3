@@ -46,11 +46,26 @@ int StartGate::getCurrentLoad() const {
     return currentLoad;
 }
 
+/**
+ * @brief Updates medical readiness in response to a pushed notice
+ * @param notice Notice pushed by the Subject
+ */
 void StartGate::update(const Notice& notice) {
-    (void) notice;
-    throw "Not yet implemented";
+    switch(notice.getType()){
+        //pauses new starts
+            //isOpenForStart = false
+        case WEATHER_ALERT:
+        case PAUSE:
+        case SECTOR_CLOSED:
+        case RESUME:
+        case OPEN:
+        case EVACUATE:
+        default:
+            break;
+    }
 }
 
+//4.3
 /**
  * @brief Want to admit runner to a batch but checks if back too full or no one to join or not open to start.
  * @param count Number of runners requesting access/admission

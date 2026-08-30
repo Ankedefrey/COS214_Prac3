@@ -3,7 +3,6 @@
 #include "Notice.h"
 
 #include <iostream>
-#include <stdexcept>
 
 TimingPoint::TimingPoint(const std::string& name,
                          int number,
@@ -37,8 +36,18 @@ int TimingPoint::getCurrentLoad() const {
 }
 
 void TimingPoint::update(const Notice& notice) {
-    (void) notice;
-    throw "Not yet implemented";
+    switch(notice.getType()){
+        //continues recording using backup timing
+            //backupMode = true
+        case WEATHER_ALERT:
+        case PAUSE:
+        case SECTOR_CLOSED:
+        case RESUME:
+        case OPEN:
+        case EVACUATE:
+        default:
+            break;
+    }
 }
 
 bool TimingPoint::recordRunner(int runnerNumber, int arrivalTime) {

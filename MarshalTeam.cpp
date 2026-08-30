@@ -3,7 +3,6 @@
 #include "Notice.h"
 
 #include <iostream>
-#include <stdexcept>
 
 MarshalTeam::MarshalTeam(const std::string& name, int size)
     : EventComponent(name, size),
@@ -32,8 +31,19 @@ int MarshalTeam::getCurrentLoad() const {
 }
 
 void MarshalTeam::update(const Notice& notice) {
-    (void) notice;
-    throw "Not yet implemented";
+    switch(notice.getType()){
+        //Redirects runners around the danger
+            //redirectRunners = true
+            //isDeployed = true
+        case WEATHER_ALERT:
+        case PAUSE:
+        case SECTOR_CLOSED:
+        case RESUME:
+        case OPEN:
+        case EVACUATE:
+        default:
+            break;
+    }
 }
 
 Notice MarshalTeam::createHazardNotice(const std::string& message,
