@@ -52,19 +52,56 @@ void EventGroup::update(const Notice& notice) {
     throw "Not yet implemented";
 }
 
+//Task 3.1
+
 void EventGroup::attach(Observer* observer) {
-    (void) observer;
-    throw "Not yet implemented";
+    if(observer == nullptr)
+    {
+        return;  //never store null
+    }
+
+    for(Observer* o : observers)
+    {
+        if(o == observer)  //look for duplicates
+        {
+            return;  //avoid storing duplicate
+        }
+    }
+
+    observers.push_back(observer);  //append to list
 }
 
+//forgets address, not deletion (or it will result in double delete later)
 void EventGroup::detach(Observer* observer) {
-    (void) observer;
-    throw "Not yet implemented";
+    if(observer == nullptr)
+    {
+        return;
+    }
+
+    std::vector<Observer*>::iterator it = observers.begin();
+    while(it != observers.end())
+    {
+        if(*it == observer)  //search for pointer in list
+        {
+            observers.erase(it);  //remove pointer from list
+            return;
+        }
+
+        ++it;
+    }
 }
 
 void EventGroup::notify(const Notice& notice) {
-    (void) notice;
-    throw "Not yet implemented";
+    std::vector<Observer*> snapshot = observers;  //copy list into temporary snapshot
+    //live looping list could result in skipping people, hitting people twice, or blowing up the iterator
+
+    for(Observer* o : snapshot)
+    {
+        if(o != nullptr)
+        {
+            o->update(notice);  //update each pointer
+        }
+    }
 }
 
 EventGroup::~EventGroup() {
