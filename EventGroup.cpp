@@ -11,13 +11,29 @@ EventGroup::EventGroup(const std::string& name)
 }
 
 void EventGroup::addChild(EventComponent* child) {
-    (void) child;
-    throw "Not yet implemented";
+    //adopts ownership of non-null pointer
+    if(child != nullptr)
+    {
+        children.push_back(child);
+    }
 }
 
 EventComponent* EventGroup::releaseChild(EventComponent* child) {
-    (void) child;
-    throw "Not yet implemented";
+    std::vector<EventComponent*>::iterator it = children.begin();
+    while(it != children.end())
+    {
+        if(*it == child)  //search for pointer in list
+        {
+            EventComponent* foundChild = *it;
+            children.erase(it);  //remove pointer from list
+            
+            return foundChild;
+        }
+
+        ++it;
+    }
+
+    return nullptr;
 }
 
 bool EventGroup::transferChild(EventComponent* child,
