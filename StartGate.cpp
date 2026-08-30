@@ -3,20 +3,28 @@
 #include "Notice.h"
 
 #include <iostream>
-#include <stdexcept>
 
 StartGate::StartGate(const std::string& name, int batchSize)
     : EventComponent(name, batchSize),
-      batchSize(batchSize),
-      isOpenForStart(false) {
+    batchSize(batchSize),
+    isOpenForStart(false) {
 }
 
+/**
+ * @brief Opens the gate and permits controlled runner starts.
+ */
 void StartGate::open() {
-    throw "Not yet implemented";
+    openState = true;
+    isOpenForStart = true;
 }
 
+/**
+ * @brief Closes the gate and prevents new runner starts.
+ */
 void StartGate::close() {
-    throw "Not yet implemented";
+    openState = false;
+    isOpenForStart = false;
+    currentLoad = 0;
 }
 
 void StartGate::reportStatus() const {
