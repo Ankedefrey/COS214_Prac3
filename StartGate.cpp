@@ -30,13 +30,20 @@ void StartGate::close() {
 void StartGate::reportStatus() const {
     throw "Not yet implemented";
 }
-
+/**
+ * @brief Returns the maximum allowed batch size
+ * @return maximum rumner of runners allowed in ons batch
+ */
 int StartGate::getCapacity() const {
-    throw "Not yet implemented";
+    return batchSize;
 }
 
+/**
+ * @brief Returns the number of runners in the current batch
+ * @return maximum current runner load
+ */
 int StartGate::getCurrentLoad() const {
-    throw "Not yet implemented";
+    return currentLoad;
 }
 
 void StartGate::update(const Notice& notice) {
