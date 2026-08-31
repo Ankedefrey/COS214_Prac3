@@ -139,5 +139,14 @@ int main(){
     std::cout<<"HAZARD_ALERT reissued: gravelMarshal must NOT react \n gravelAid/gravelTiming still should"<<std::endl;
     control.issueNotice(HAZARD_ALERT, "Rockslide reported on the gravel course", 2);
 
+    //RUNTIME REORGANISATION
+    // transfer gravelmarshal to forestSector
+        //Ownership (transferChild) and observer registration (attach) are updatd as two seperate steps
+    std::cout<<"Transferring gravelMarshal to forestSector"<<std::endl;
+    forestSector->transferChild(gravelMarshal, forestSector);
+    forestSector->attach(gravelMarshal); //now observes its new parent instead
+
+    std::cout<<"Route changed issued: gravelMarshal now reacts as part of Forest Sector's cascade"<<std::endl;
+    control.issueNotice(ROUTE_CHANGE, "Course rerouted around the rockslide", 2);
 
 }
