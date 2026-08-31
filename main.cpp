@@ -149,7 +149,7 @@ int main(){
     // transfer gravelmarshal to forestSector
         //Ownership (transferChild) and observer registration (attach) are updatd as two seperate steps
     std::cout<<"\nTransferring gravelMarshal to forestSector\n"<<std::endl;
-    forestSector->transferChild(gravelMarshal, forestSector);
+    gravelSector->transferChild(gravelMarshal, forestSector);
     forestSector->attach(gravelMarshal); //now observes its new parent instead
 
     std::cout<<"\nRoute changed issued: gravelMarshal now reacts as part of Forest Sector's cascade\n"<<std::endl;
