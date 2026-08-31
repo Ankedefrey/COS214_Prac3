@@ -122,6 +122,14 @@ int main(){
     startTiming->recordRunner(101, 1200);
     startTiming->recordRunner(102, 1900);//past cutoff
 
+    //NOTICE TYPES
+    std::cout<<"WEATHER ALERT"<<std::endl;
+    control.issueNotice(WEATHER_ALERT, "Severe storm approaching", 2);
+    std::cout<<"CAPACITY ALERT"<<std::endl;
+    control.issueNotice(CAPACITY_ALERT, "Start nearing maximum runners", 1);
+    std::cout<<"EVACUATION ALERT"<<std::endl;
+    control.issueNotice(EVACUATE, "Evacuate the gravel sector - lightning risk", 3);
+
     
 
 
