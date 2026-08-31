@@ -11,9 +11,9 @@
 #include <stdexcept>
 
 AidStation::AidStation(const std::string& name, int capacity, int stock, int threshold): EventComponent(name, capacity),
-      stockLevel(stock),
-      lowStockThreshold(threshold),
-      isServing(false) {
+    stockLevel(stock),
+    lowStockThreshold(threshold),
+    isServing(false) {
 }
 
 /**
@@ -63,13 +63,13 @@ int AidStation::getCurrentLoad() const {
  * @brief This handles event notifications that affect the aid station
  * The different notice types trigger diff behaviors such as:
  * -Weather_Alert: Secures stock while continuing service
- * -Pause: Stops the service temporarily 
+ * -Pause: Stops the service temporarily
  * -Resume: Resumes the normal service
- * -Supply_Alert: Triggers to restock 
+ * -Supply_Alert: Triggers to restock
  * -Capacity_Alert: Checks if aid station has reached the maximum amount of people.
  * -Close: Stops service and closes the aid station
- * 
- * @param notice The notice that's being processed 
+ *
+ * @param notice The notice that's being processed
  */
 void AidStation::update(const Notice& notice) {
     switch (notice.getType()) {
@@ -165,7 +165,7 @@ void AidStation::serveRunner(int unitsUsed) {
 
 /**
  * @brief Checks if the aid station's stock is below the threshold.
- * 
+ *
  * @return true if stock level is below threshold, false otherwise
  */
 bool AidStation::isStockLow() const {
@@ -174,7 +174,7 @@ bool AidStation::isStockLow() const {
 
 /**
  * @brief Restocks the aid station with additional supplies.
- * 
+ *
  * @param amount The amount of supplies to add
  */
 void AidStation::restock(int amount) {
