@@ -35,7 +35,7 @@ int main(){
     // COMPOSITE CONSTRUCTION
 
     //BUILDING THE EVENT TREE
-    std::cout<<"BUILDING THE EVENT TREE\n"<<std::endl;
+    std::cout<<"\nBUILDING THE EVENT TREE\n"<<std::endl;
     //Level 1: The Root Race Event
     RaceEvent* race = new RaceEvent("Mixed Terrain Race 2026");
     
@@ -118,7 +118,7 @@ int main(){
     control.getRaceRoot()->open();
 
     //leaf specific operations
-    std::cout<<"LEAF OPERATIONS\n"<<std::endl;
+    std::cout<<"\nLEAF OPERATIONS\n"<<std::endl;
     startGate->admitRunners(25);
     startGate->admitRunners(30); //exceeds batch size
 
@@ -131,14 +131,14 @@ int main(){
     //NOTICE TYPES
     std::cout<<"\nWEATHER ALERT"<<std::endl;
     control.issueNotice(WEATHER_ALERT, "Severe storm approaching", 2);
-    std::cout<<"CAPACITY ALERT"<<std::endl;
+    std::cout<<"\nCAPACITY ALERT"<<std::endl;
     control.issueNotice(CAPACITY_ALERT, "Start nearing maximum runners", 1);
-    std::cout<<"EVACUATION ALERT"<<std::endl;
+    std::cout<<"\nEVACUATION ALERT"<<std::endl;
     control.issueNotice(EVACUATE, "Evacuate the gravel sector - lightning risk", 3);
 
     //REGISTRATION CHANGE
     //detach an observer
-
+    std::cout<<"\nREGISTRATION CHANGE\n"<<std::endl;
     std::cout<<"\nDetaching gravelMarshal from gravelSector\n"<<std::endl;
     gravelSector->detach(gravelMarshal);
 
