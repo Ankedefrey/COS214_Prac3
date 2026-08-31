@@ -2,7 +2,7 @@
  * @file main.cpp
  * @brief Builds the EventFlow ownership tree, wires the Observer cascade on top of it and runs a demonstration:
  * Composite construction, Observer registration, three-plus notification types, a notification cascading through a three-plus runtime levels,
- * a registration change, a runtime reorganisation that updates both ownership and observer registration,
+ * a registration change, a runtime re-organisation that updates both ownership and observer registration,
  * composite traversal and a clean exit.
  *
  * Nesting:
@@ -143,17 +143,17 @@ int main(){
     gravelSector->detach(gravelMarshal);
 
     std::cout<<"\nHAZARD_ALERT reissued: gravelMarshal must NOT react \n gravelAid/gravelTiming still should\n"<<std::endl;
-    control.issueNotice(HAZARD_ALERT, "Rockslide reported on the gravel course", 2);
+    control.issueNotice(HAZARD_ALERT, "Rock slide reported on the gravel course", 2);
 
-    //RUNTIME REORGANISATION
-    // transfer gravelmarshal to forestSector
-        //Ownership (transferChild) and observer registration (attach) are updatd as two seperate steps
+    //RUNTIME RE-ORGANISATION
+    // transfer gravelMarshal to forestSector
+        //Ownership (transferChild) and observer registration (attach) are update as two separate steps
     std::cout<<"\nTransferring gravelMarshal to forestSector\n"<<std::endl;
     gravelSector->transferChild(gravelMarshal, forestSector);
     forestSector->attach(gravelMarshal); //now observes its new parent instead
 
     std::cout<<"\nRoute changed issued: gravelMarshal now reacts as part of Forest Sector's cascade\n"<<std::endl;
-    control.issueNotice(ROUTE_CHANGE, "Course rerouted around the rockslide", 2);
+    control.issueNotice(ROUTE_CHANGE, "Course rerouted around the rock-slide", 2);
 
     //COMPOSITE TRAVERSAL
     std::cout<<"\nCAPACITY QUERIES\n"<<std::endl;
