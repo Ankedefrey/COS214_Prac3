@@ -1,0 +1,225 @@
+\doxysection{Aid\+Station Class Reference}
+\hypertarget{class_aid_station}{}\label{class_aid_station}\index{AidStation@{AidStation}}
+Inheritance diagram for Aid\+Station:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_aid_station}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_aid_station_a2bb9db40e495f53197839b66cddf5cbf}{Aid\+Station}} (const std::\+string \&name, int capacity, int stock, int threshold)
+\begin{DoxyCompactList}\small\item\em Constructs an aid station. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_aid_station_a589129760790ebc8ecc4ef4e1bb6446f}{open}} () override
+\begin{DoxyCompactList}\small\item\em this just opens the aid station and beings to start serving runners \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_aid_station_a7bad453539aa1a6a927abf6b280ad5e9}{close}} () override
+\begin{DoxyCompactList}\small\item\em Closes the station and stops serving runners. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_aid_station_a16782a07188bfc87fb111b5134f53cad}{report\+Status}} () const override
+\begin{DoxyCompactList}\small\item\em Prints this station\textquotesingle{}s current status. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_aid_station_a9a68500d9f20975f3a7805a58d58c4d7}{get\+Capacity}} () const override
+\begin{DoxyCompactList}\small\item\em returns the maximum capacity of the aid station \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_aid_station_a7be61d208991ee9e64c414fd0f2b4a1f}{get\+Current\+Load}} () const override
+\item 
+void \doxymbox{\hyperlink{class_aid_station_a94d3ca57e893c4953a5ec3754d0be868}{update}} (const \doxymbox{\hyperlink{class_notice}{Notice}} \&notice) override
+\begin{DoxyCompactList}\small\item\em This handles event notifications that affect the aid station The different notice types trigger diff behaviors such as: -\/Weather\+\_\+\+Alert: Secures stock while continuing service -\/Pause: Stops the service temporarily -\/Resume: Resumes the normal service -\/Supply\+\_\+\+Alert: Triggers to restock -\/Capacity\+\_\+\+Alert: Checks if aid station has reached the maximum amount of people. -\/Close: Stops service and closes the aid station. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_aid_station_abbc90442d21085010489ebe7b2612a01}{serve\+Runner}} (int units\+Used)
+\begin{DoxyCompactList}\small\item\em Serving a runner at the aid station. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_aid_station_a076c2b827481e1cb6fb99ab6ab3a077b}{is\+Stock\+Low}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the aid station\textquotesingle{}s stock is below the threshold. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_aid_station_a3f68ab9b97a7b8b5edcf3f8430619daa}{restock}} (int amount)
+\begin{DoxyCompactList}\small\item\em Restocks the aid station with additional supplies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{Event\+Component}} (const std::\+string \&name, int capacity=0)
+\begin{DoxyCompactList}\small\item\em GoF Component role for the Composite pattern. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_event_component_a514ee7d351f3aeee4b611665fa91cbaf}{get\+Name}} () const
+\item 
+bool \doxymbox{\hyperlink{class_event_component_a41d0483abfcb7cbfd8cf53a77e141c2f}{is\+Open}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_observer}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor so derived Observers destroy correctly through a base-\/class pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string {\bfseries name}
+\item 
+bool {\bfseries open\+State}
+\item 
+int {\bfseries capacity}
+\item 
+int {\bfseries current\+Load}
+\end{DoxyCompactItemize}
+
+
+\label{class_aid_station_doc-constructors}
+\Hypertarget{class_aid_station_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_aid_station_a2bb9db40e495f53197839b66cddf5cbf}\index{AidStation@{AidStation}!AidStation@{AidStation}}
+\index{AidStation@{AidStation}!AidStation@{AidStation}}
+\doxysubsubsection{\texorpdfstring{AidStation()}{AidStation()}}
+{\footnotesize\ttfamily \label{class_aid_station_a2bb9db40e495f53197839b66cddf5cbf} 
+Aid\+Station::\+\+Aid\+Station (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{, }\item[{int}]{capacity}{, }\item[{int}]{stock}{, }\item[{int}]{threshold}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an aid station. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Human-\/readable identifier. \\
+\hline
+{\em capacity} & Maximum number of runners it can serve at once. \\
+\hline
+{\em stock} & Starting stock level (units of supplies). \\
+\hline
+{\em threshold} & Stock level below which \doxylink{class_aid_station_a076c2b827481e1cb6fb99ab6ab3a077b}{is\+Stock\+Low()} reports true. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_aid_station_doc-func-members}
+\Hypertarget{class_aid_station_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_aid_station_a7bad453539aa1a6a927abf6b280ad5e9}\index{AidStation@{AidStation}!close@{close}}
+\index{close@{close}!AidStation@{AidStation}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily \label{class_aid_station_a7bad453539aa1a6a927abf6b280ad5e9} 
+void Aid\+Station::\+close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Closes the station and stops serving runners. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_aid_station_a9a68500d9f20975f3a7805a58d58c4d7}\index{AidStation@{AidStation}!getCapacity@{getCapacity}}
+\index{getCapacity@{getCapacity}!AidStation@{AidStation}}
+\doxysubsubsection{\texorpdfstring{getCapacity()}{getCapacity()}}
+{\footnotesize\ttfamily \label{class_aid_station_a9a68500d9f20975f3a7805a58d58c4d7} 
+int Aid\+Station::\+get\+Capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+returns the maximum capacity of the aid station 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_aid_station_a7be61d208991ee9e64c414fd0f2b4a1f}\index{AidStation@{AidStation}!getCurrentLoad@{getCurrentLoad}}
+\index{getCurrentLoad@{getCurrentLoad}!AidStation@{AidStation}}
+\doxysubsubsection{\texorpdfstring{getCurrentLoad()}{getCurrentLoad()}}
+{\footnotesize\ttfamily \label{class_aid_station_a7be61d208991ee9e64c414fd0f2b4a1f} 
+int Aid\+Station::\+get\+Current\+Load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+The number of runners currently being served. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_aid_station_a076c2b827481e1cb6fb99ab6ab3a077b}\index{AidStation@{AidStation}!isStockLow@{isStockLow}}
+\index{isStockLow@{isStockLow}!AidStation@{AidStation}}
+\doxysubsubsection{\texorpdfstring{isStockLow()}{isStockLow()}}
+{\footnotesize\ttfamily \label{class_aid_station_a076c2b827481e1cb6fb99ab6ab3a077b} 
+bool Aid\+Station::\+is\+Stock\+Low (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the aid station\textquotesingle{}s stock is below the threshold. 
+
+\begin{DoxyReturn}{Returns}
+true if stock level is below threshold, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_aid_station_a589129760790ebc8ecc4ef4e1bb6446f}\index{AidStation@{AidStation}!open@{open}}
+\index{open@{open}!AidStation@{AidStation}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily \label{class_aid_station_a589129760790ebc8ecc4ef4e1bb6446f} 
+void Aid\+Station::\+open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+this just opens the aid station and beings to start serving runners 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_aid_station_a16782a07188bfc87fb111b5134f53cad}\index{AidStation@{AidStation}!reportStatus@{reportStatus}}
+\index{reportStatus@{reportStatus}!AidStation@{AidStation}}
+\doxysubsubsection{\texorpdfstring{reportStatus()}{reportStatus()}}
+{\footnotesize\ttfamily \label{class_aid_station_a16782a07188bfc87fb111b5134f53cad} 
+void Aid\+Station::\+report\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Prints this station\textquotesingle{}s current status. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_aid_station_a3f68ab9b97a7b8b5edcf3f8430619daa}\index{AidStation@{AidStation}!restock@{restock}}
+\index{restock@{restock}!AidStation@{AidStation}}
+\doxysubsubsection{\texorpdfstring{restock()}{restock()}}
+{\footnotesize\ttfamily \label{class_aid_station_a3f68ab9b97a7b8b5edcf3f8430619daa} 
+void Aid\+Station::\+restock (\begin{DoxyParamCaption}\item[{int}]{amount}{}\end{DoxyParamCaption})}
+
+
+
+Restocks the aid station with additional supplies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & The amount of supplies to add \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_aid_station_abbc90442d21085010489ebe7b2612a01}\index{AidStation@{AidStation}!serveRunner@{serveRunner}}
+\index{serveRunner@{serveRunner}!AidStation@{AidStation}}
+\doxysubsubsection{\texorpdfstring{serveRunner()}{serveRunner()}}
+{\footnotesize\ttfamily \label{class_aid_station_abbc90442d21085010489ebe7b2612a01} 
+void Aid\+Station::\+serve\+Runner (\begin{DoxyParamCaption}\item[{int}]{units\+Used}{}\end{DoxyParamCaption})}
+
+
+
+Serving a runner at the aid station. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em units\+Used} & the amount of supplies that a runner consumes \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_aid_station_a94d3ca57e893c4953a5ec3754d0be868}\index{AidStation@{AidStation}!update@{update}}
+\index{update@{update}!AidStation@{AidStation}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_aid_station_a94d3ca57e893c4953a5ec3754d0be868} 
+void Aid\+Station::\+update (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_notice}{Notice}} \&}]{notice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This handles event notifications that affect the aid station The different notice types trigger diff behaviors such as: -\/Weather\+\_\+\+Alert: Secures stock while continuing service -\/Pause: Stops the service temporarily -\/Resume: Resumes the normal service -\/Supply\+\_\+\+Alert: Triggers to restock -\/Capacity\+\_\+\+Alert: Checks if aid station has reached the maximum amount of people. -\/Close: Stops service and closes the aid station. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em notice} & The notice that\textquotesingle{}s being processed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_event_component_a1d950c5a511103e16d584eb61efe57d4}{Event\+Component}}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Aid\+Station.\+h\item 
+\doxymbox{\hyperlink{_aid_station_8cpp}{Aid\+Station.\+cpp}}\end{DoxyCompactItemize}

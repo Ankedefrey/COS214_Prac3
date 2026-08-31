@@ -1,0 +1,19 @@
+\doxysection{Timing\+Point.\+cpp File Reference}
+\hypertarget{_timing_point_8cpp}{}\label{_timing_point_8cpp}\index{TimingPoint.cpp@{TimingPoint.cpp}}
+
+
+Implementation of \doxylink{class_timing_point}{Timing\+Point} that records runners times and monitors the cutoff times. GoF role: Concrete\+Component (Composite) and Concrete\+Observer (\doxylink{class_observer}{Observer}). Switches to backup\+Mode during a WEATHER\+\_\+\+ALERT/\+\+EVACUATE rather than stopping recording outright -\/ its distinct reaction compared to a leaf like \doxylink{class_start_gate}{Start\+Gate}, which pauses entirely.  
+
+
+{\ttfamily \+\#include "{}Timing\+Point.\+h"{}}\newline
+{\ttfamily \+\#include "{}Notice.\+h"{}}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$stdexcept$>$}\newline
+
+
+\doxysubsection{Detailed Description}
+Implementation of \doxylink{class_timing_point}{Timing\+Point} that records runners times and monitors the cutoff times. GoF role: Concrete\+Component (Composite) and Concrete\+Observer (\doxylink{class_observer}{Observer}). Switches to backup\+Mode during a WEATHER\+\_\+\+ALERT/\+\+EVACUATE rather than stopping recording outright -\/ its distinct reaction compared to a leaf like \doxylink{class_start_gate}{Start\+Gate}, which pauses entirely. 
+
+\begin{DoxyAuthor}{Author}
+Jezelle Govender 
+\end{DoxyAuthor}

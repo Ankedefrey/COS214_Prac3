@@ -1,0 +1,197 @@
+\doxysection{Timing\+Point Class Reference}
+\hypertarget{class_timing_point}{}\label{class_timing_point}\index{TimingPoint@{TimingPoint}}
+Inheritance diagram for Timing\+Point:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_timing_point}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_timing_point_abc9c4643ea9e2e4aeca76629edd8074e}{Timing\+Point}} (const std::\+string \&name, int number, int cutoff, int capacity)
+\begin{DoxyCompactList}\small\item\em Constructs a timing point. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_timing_point_aa54725fb7c24aeda594b7d84e91d5124}{open}} () override
+\begin{DoxyCompactList}\small\item\em opens the checkpoint point and starts recording \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_timing_point_ad98867ed2553bf58d273cc99f86b6078}{close}} () override
+\begin{DoxyCompactList}\small\item\em closes the checkpoint and stops recording \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_timing_point_aa01420061ec44bcbf8bd7399e2880a8d}{report\+Status}} () const override
+\begin{DoxyCompactList}\small\item\em Reports the current status of the check point. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_timing_point_ae85c27a5e5f614dfa7dd7680eed80f35}{get\+Capacity}} () const override
+\item 
+int \doxymbox{\hyperlink{class_timing_point_a5addb71077b9f2c5ac0b705db52cd1d1}{get\+Current\+Load}} () const override
+\item 
+void \doxymbox{\hyperlink{class_timing_point_a4fcc05887c89cbd0faef69c21cc641f6}{update}} (const \doxymbox{\hyperlink{class_notice}{Notice}} \&notice) override
+\begin{DoxyCompactList}\small\item\em handles event notifications that affect the timepoint, it switches to backup mode during emergencies. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_timing_point_aa7f66b2a6463cc481cad93d7227177e5}{record\+Runner}} (int runner\+Number, int arrival\+Time)
+\begin{DoxyCompactList}\small\item\em Records a runner\textquotesingle{}s arrival time at the timing point if within cutoff, else issue an alert. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{Event\+Component}} (const std::\+string \&name, int capacity=0)
+\begin{DoxyCompactList}\small\item\em GoF Component role for the Composite pattern. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_event_component_a514ee7d351f3aeee4b611665fa91cbaf}{get\+Name}} () const
+\item 
+bool \doxymbox{\hyperlink{class_event_component_a41d0483abfcb7cbfd8cf53a77e141c2f}{is\+Open}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_observer}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor so derived Observers destroy correctly through a base-\/class pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string {\bfseries name}
+\item 
+bool {\bfseries open\+State}
+\item 
+int {\bfseries capacity}
+\item 
+int {\bfseries current\+Load}
+\end{DoxyCompactItemize}
+
+
+\label{class_timing_point_doc-constructors}
+\Hypertarget{class_timing_point_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_timing_point_abc9c4643ea9e2e4aeca76629edd8074e}\index{TimingPoint@{TimingPoint}!TimingPoint@{TimingPoint}}
+\index{TimingPoint@{TimingPoint}!TimingPoint@{TimingPoint}}
+\doxysubsubsection{\texorpdfstring{TimingPoint()}{TimingPoint()}}
+{\footnotesize\ttfamily \label{class_timing_point_abc9c4643ea9e2e4aeca76629edd8074e} 
+Timing\+Point::\+\+Timing\+Point (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{, }\item[{int}]{number}{, }\item[{int}]{cutoff}{, }\item[{int}]{capacity}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a timing point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Human-\/readable identifier. \\
+\hline
+{\em number} & This checkpoint\textquotesingle{}s sequence number on the course. \\
+\hline
+{\em cutoff} & The latest arrival time still counted as on-\/pace. \\
+\hline
+{\em capacity} & Maximum number of runners it can process. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_timing_point_doc-func-members}
+\Hypertarget{class_timing_point_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_timing_point_ad98867ed2553bf58d273cc99f86b6078}\index{TimingPoint@{TimingPoint}!close@{close}}
+\index{close@{close}!TimingPoint@{TimingPoint}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily \label{class_timing_point_ad98867ed2553bf58d273cc99f86b6078} 
+void Timing\+Point::\+close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+closes the checkpoint and stops recording 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_timing_point_ae85c27a5e5f614dfa7dd7680eed80f35}\index{TimingPoint@{TimingPoint}!getCapacity@{getCapacity}}
+\index{getCapacity@{getCapacity}!TimingPoint@{TimingPoint}}
+\doxysubsubsection{\texorpdfstring{getCapacity()}{getCapacity()}}
+{\footnotesize\ttfamily \label{class_timing_point_ae85c27a5e5f614dfa7dd7680eed80f35} 
+int Timing\+Point::\+get\+Capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+The maximum number of runners this checkpoint can process. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_timing_point_a5addb71077b9f2c5ac0b705db52cd1d1}\index{TimingPoint@{TimingPoint}!getCurrentLoad@{getCurrentLoad}}
+\index{getCurrentLoad@{getCurrentLoad}!TimingPoint@{TimingPoint}}
+\doxysubsubsection{\texorpdfstring{getCurrentLoad()}{getCurrentLoad()}}
+{\footnotesize\ttfamily \label{class_timing_point_a5addb71077b9f2c5ac0b705db52cd1d1} 
+int Timing\+Point::\+get\+Current\+Load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+The number of runners recorded so far. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_timing_point_aa54725fb7c24aeda594b7d84e91d5124}\index{TimingPoint@{TimingPoint}!open@{open}}
+\index{open@{open}!TimingPoint@{TimingPoint}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily \label{class_timing_point_aa54725fb7c24aeda594b7d84e91d5124} 
+void Timing\+Point::\+open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+opens the checkpoint point and starts recording 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_timing_point_aa7f66b2a6463cc481cad93d7227177e5}\index{TimingPoint@{TimingPoint}!recordRunner@{recordRunner}}
+\index{recordRunner@{recordRunner}!TimingPoint@{TimingPoint}}
+\doxysubsubsection{\texorpdfstring{recordRunner()}{recordRunner()}}
+{\footnotesize\ttfamily \label{class_timing_point_aa7f66b2a6463cc481cad93d7227177e5} 
+bool Timing\+Point::\+record\+Runner (\begin{DoxyParamCaption}\item[{int}]{runner\+Number}{, }\item[{int}]{arrival\+Time}{}\end{DoxyParamCaption})}
+
+
+
+Records a runner\textquotesingle{}s arrival time at the timing point if within cutoff, else issue an alert. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em runner\+Number} & A unique identifier of the runner \\
+\hline
+{\em arrival\+Time} & The time the runner arrived at this checkpoint \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the runner was recorded, or false if they missed the cutoff. 
+\end{DoxyReturn}
+\Hypertarget{class_timing_point_aa01420061ec44bcbf8bd7399e2880a8d}\index{TimingPoint@{TimingPoint}!reportStatus@{reportStatus}}
+\index{reportStatus@{reportStatus}!TimingPoint@{TimingPoint}}
+\doxysubsubsection{\texorpdfstring{reportStatus()}{reportStatus()}}
+{\footnotesize\ttfamily \label{class_timing_point_aa01420061ec44bcbf8bd7399e2880a8d} 
+void Timing\+Point::\+report\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reports the current status of the check point. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_timing_point_a4fcc05887c89cbd0faef69c21cc641f6}\index{TimingPoint@{TimingPoint}!update@{update}}
+\index{update@{update}!TimingPoint@{TimingPoint}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_timing_point_a4fcc05887c89cbd0faef69c21cc641f6} 
+void Timing\+Point::\+update (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_notice}{Notice}} \&}]{notice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+handles event notifications that affect the timepoint, it switches to backup mode during emergencies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em notice} & the notice being processed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_event_component_a1d950c5a511103e16d584eb61efe57d4}{Event\+Component}}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Timing\+Point.\+h\item 
+\doxymbox{\hyperlink{_timing_point_8cpp}{Timing\+Point.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,33 @@
+\doxysection{Marshal\+Team.\+h}
+\hypertarget{_marshal_team_8h_source}{}\label{_marshal_team_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MARSHALTEAM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MARSHALTEAM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}EventComponent.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Notice.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_marshal_team_a6cfd6b271812fa8b55eb7bcaa82d7d38}{MarshalTeam}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{EventComponent}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ teamSize;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDeployed;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{class_marshal_team_a6cfd6b271812fa8b55eb7bcaa82d7d38}{MarshalTeam}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_marshal_team_a94fdc6eea34ba5ea9f2e4bc6b09d5645}{open}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_marshal_team_aeb62c6962c97e077eaf434ebcd74a1ad}{close}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_marshal_team_ad99eb3953aded044ebd21307c8cfe0d2}{reportStatus}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_marshal_team_a2bd5d36681b17a849d62c97e1c9b85f2}{getCapacity}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_marshal_team_ad6a2d67f55a62ea94eebf33d5f6a2db0}{getCurrentLoad}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_marshal_team_ae5fcd510e1d3389b82dda50ad9cb0bcc}{update}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_notice}{Notice}}\&\ notice)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \doxymbox{\hyperlink{class_notice}{Notice}}\ \doxymbox{\hyperlink{class_marshal_team_ab0d5abde0bd44a98b68c379330b3f19d}{createHazardNotice}}(\textcolor{keyword}{const}\ std::string\&\ message,\ \textcolor{keywordtype}{int}\ severity);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_marshal_team_aeef65b58c296c987b8088b58b84cbb3e}{redeploy}}();}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

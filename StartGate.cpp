@@ -1,18 +1,25 @@
 /**
  * @file StartGate.cpp
  * @brief Implementation of StartGate that manages the start of the race and runners admissions
+ * into batches
+ * GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).
  * @author Jezelle Govender
  */
 #include "StartGate.h"
 #include "Notice.h"
 
 #include <iostream>
-#include <stdexcept>
+#include <string>
 
+/**
+     * @brief Constructs a start gate.
+     * @param name Human-readable identifier.
+     * @param batchSize Maximum number of runners that may start through this gate (also used as capacity).
+     */
 StartGate::StartGate(const std::string& name, int batchSize)
     : EventComponent(name, batchSize),
-      batchSize(batchSize),
-      isOpenForStart(false) {
+    batchSize(batchSize),
+    isOpenForStart(false) {
 }
 
 /**
@@ -49,10 +56,12 @@ void StartGate::reportStatus() const {
     std::cout << "  Capacity: " << capacity << std::endl;
 }
 
+/// @return The maximum batch size.
 int StartGate::getCapacity() const {
     return capacity;
 }
 
+/// @return The number of runners already started through this gate.
 int StartGate::getCurrentLoad() const {
     return currentLoad;
 }
@@ -65,7 +74,7 @@ void StartGate::update(const Notice& notice) {
     switch (notice.getType()) {
         case WEATHER_ALERT:
             std::cout << "Start Gate: " << name << " received weather alert. Pausing starts."
-                      << std::endl;
+                << std::endl;
             if (notice.getSeverity() > 1) {
                 std::cout << "  High severity weather - gate is closed for starts." << std::endl;
                 isOpenForStart = false;
@@ -112,7 +121,7 @@ void StartGate::update(const Notice& notice) {
  */
 bool StartGate::admitRunners(int count) {
     if (!isOpenForStart || count < 0 || (currentLoad + count) > batchSize) {
-       
+    
         if ((currentLoad + count) > batchSize) {  //if capacity is exceeded
             std::cout << "Start Gate: " << name << " CAPACITY_ALERT: Cannot admit " << count << " runners (current load: " << currentLoad << ", batch size: " << batchSize << ")" << std::endl;
             

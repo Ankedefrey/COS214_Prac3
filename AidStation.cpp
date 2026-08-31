@@ -1,6 +1,11 @@
 /**
  * @file AidStation.cpp
- * @brief This is an implementation of the AidStation that provides hydration and nutrition to runners during the race. 
+ * @brief Concrete Leaf: a hydration/nutrition station serving runners.
+ * GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer,
+ * inherited via EventComponent)
+ * it reacts to notices such as WEATHER_ALERT, SUPPLY_ALERT, EVACUATE and HAZARD_ALERT differently from
+ * every other leaf type in the system.
+ *
  * @author Jezelle Govender
  */
 
@@ -8,12 +13,18 @@
 #include "Notice.h"
 
 #include <iostream>
-#include <stdexcept>
 
+/**
+     * @brief Constructs an aid station.
+     * @param name Human-readable identifier.
+     * @param capacity Maximum number of runners it can serve at once.
+     * @param stock Starting stock level (units of supplies).
+     * @param threshold Stock level below which isStockLow() reports true.
+     */
 AidStation::AidStation(const std::string& name, int capacity, int stock, int threshold): EventComponent(name, capacity),
-      stockLevel(stock),
-      lowStockThreshold(threshold),
-      isServing(false) {
+    stockLevel(stock),
+    lowStockThreshold(threshold),
+    isServing(false) {
 }
 
 /**
@@ -28,6 +39,7 @@ void AidStation::open() {
     }
 }
 
+/// @brief Closes the station and stops serving runners.
 void AidStation::close() {
     if(openState == true) {
         openState = false;
@@ -36,14 +48,15 @@ void AidStation::close() {
     }
 }
 
+/// @brief Prints this station's current status.
 void AidStation::reportStatus() const {
-    std::cout << "Aid Station " << name << " Status: " << std::endl;
-    std::cout << "State: " << (openState ? "Open" : "Closed") << std::endl;
-    std::cout << "Serving: " << (isServing ? "Yes" : "No") << std::endl;
-    std::cout << "Capacity: " << capacity << std::endl;
-    std::cout << "The current load: " << currentLoad << std::endl;
-    std::cout << "The stock level: " << stockLevel << std::endl;
-    std::cout << "Low stock threshold: " << lowStockThreshold << std::endl;
+    std::cout << "Aid Station: " << name << " Status: " << std::endl;
+    std::cout << "  State: " << (openState ? "Open" : "Closed") << std::endl;
+    std::cout << "  Serving: " << (isServing ? "Yes" : "No") << std::endl;
+    std::cout << "  Capacity: " << capacity << std::endl;
+    std::cout << "  The current load: " << currentLoad << std::endl;
+    std::cout << "  The stock level: " << stockLevel << std::endl;
+    std::cout << "  Low stock threshold: " << lowStockThreshold << std::endl;
 }
 
 
@@ -54,6 +67,7 @@ int AidStation::getCapacity() const {
     return capacity;
 }
 
+/// @return The number of runners currently being served.
 int AidStation::getCurrentLoad() const {
     return currentLoad;
 }
@@ -63,19 +77,19 @@ int AidStation::getCurrentLoad() const {
  * @brief This handles event notifications that affect the aid station
  * The different notice types trigger diff behaviors such as:
  * -Weather_Alert: Secures stock while continuing service
- * -Pause: Stops the service temporarily 
+ * -Pause: Stops the service temporarily
  * -Resume: Resumes the normal service
- * -Supply_Alert: Triggers to restock 
+ * -Supply_Alert: Triggers to restock
  * -Capacity_Alert: Checks if aid station has reached the maximum amount of people.
- * -Close: Stps service and closes the aid station
- * 
- * @param notice The notice that's being processed 
+ * -Close: Stops service and closes the aid station
+ *
+ * @param notice The notice that's being processed
  */
 void AidStation::update(const Notice& notice) {
     switch (notice.getType()) {
     case WEATHER_ALERT:
         std::cout << "Aid Station: " << name << " is securing stock while still maintaining services. " << std::endl;
-        restock(10); 
+        restock(10);
         isServing = true;
         break;
 
@@ -108,6 +122,23 @@ void AidStation::update(const Notice& notice) {
     case CLOSE:
         std::cout << " Aid Station: " << name << " is now closed." << std::endl;
         close();
+        break;
+    
+    case EVACUATE:
+        std::cout<<"Aid Station: "<<name<<" halting service and securing supplies for evacuation."<<std::endl;
+        isServing = false;
+        break;
+
+    case ROUTE_CHANGE:
+        std::cout<<"Aid Station: "<<name<<" adjusting position to support the new route."<<std::endl;
+        break;
+
+    case HAZARD_ALERT:
+        std::cout<<"Aid Station: "<<name<<" pausing service until the hazard is cleared."<<std::endl;
+        isServing = false;
+        if(notice.getSeverity() >= 2){
+            std::cout<< "  High severity hazard - securing all supplies."<<std::endl;
+        }
         break;
 
     default:
@@ -148,7 +179,7 @@ void AidStation::serveRunner(int unitsUsed) {
 
 /**
  * @brief Checks if the aid station's stock is below the threshold.
- * 
+ *
  * @return true if stock level is below threshold, false otherwise
  */
 bool AidStation::isStockLow() const {
@@ -157,7 +188,7 @@ bool AidStation::isStockLow() const {
 
 /**
  * @brief Restocks the aid station with additional supplies.
- * 
+ *
  * @param amount The amount of supplies to add
  */
 void AidStation::restock(int amount) {

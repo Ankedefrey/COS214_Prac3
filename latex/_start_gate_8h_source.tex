@@ -1,0 +1,31 @@
+\doxysection{Start\+Gate.\+h}
+\hypertarget{_start_gate_8h_source}{}\label{_start_gate_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ STARTGATE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ STARTGATE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}EventComponent.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_start_gate_af1623def11db0fc6147eb045134b308b}{StartGate}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{EventComponent}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ batchSize;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{bool}\ isOpenForStart;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \doxymbox{\hyperlink{class_start_gate_af1623def11db0fc6147eb045134b308b}{StartGate}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ batchSize);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_start_gate_a36000d7f374d0d63062612f1d4c624a2}{open}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_start_gate_a00c907c3d2c9be044f326daf6968e70f}{close}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_start_gate_acc3628781d7c2b60a9b03be8b10d6dd5}{reportStatus}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_start_gate_af3a84f4ace454a09dcdf53e3f6c3c088}{getCapacity}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_start_gate_a7889416f924922ae96c00b7c84fc8a9d}{getCurrentLoad}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_start_gate_a58ae6437c8ee704f32660d3c47f37c0c}{update}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_notice}{Notice}}\&\ notice)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_start_gate_a4121dfe68bc44ff62834dd009902a880}{admitRunners}}(\textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

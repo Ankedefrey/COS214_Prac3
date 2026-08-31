@@ -1,6 +1,10 @@
 /**
  * @file TimingPoint.cpp
  * @brief Implementation of TimingPoint that records runners times and monitors the cutoff times.
+ * GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).
+ * Switches to backupMode during a WEATHER_ALERT/EVACUATE rather than
+ * stopping recording outright - its distinct reaction compared to a leaf
+ * like StartGate, which pauses entirely.
  * @author Jezelle Govender
  */
 #include "TimingPoint.h"
@@ -9,41 +13,45 @@
 #include <iostream>
 #include <stdexcept>
 
-TimingPoint::TimingPoint(const std::string& name,
-                         int number,
-                         int cutoff,
-                         int capacity)
+/**
+* @brief Constructs a timing point.
+* @param name Human-readable identifier.
+* @param number This checkpoint's sequence number on the course.
+* @param cutoff The latest arrival time still counted as on-pace.
+* @param capacity Maximum number of runners it can process.
+*/
+TimingPoint::TimingPoint(const std::string& name, int number, int cutoff, int capacity)
     : EventComponent(name, capacity),
-      checkpointNumber(number),
-      cutoffTime(cutoff),
-      isRecording(false),
-      backupMode(false) {
+    checkpointNumber(number),
+    cutoffTime(cutoff),
+    isRecording(false),
+    backupMode(false) {
 }
 
 /**
- * @brief opens the timing point and starts recording
+ * @brief opens the checkpoint point and starts recording
  */
 void TimingPoint::open() {
-   if(!openState) {
+    if(!openState) {
     openState = true;
     isRecording = true;
     std::cout << "Timing Point: " << name << " opened and recording." << std::endl;
-   }
+    }
 }
 
 /**
- * @brief closes the timing point and stops recording
+ * @brief closes the checkpoint and stops recording
  */
 void TimingPoint::close() {
     if(openState) {
     openState = false;
     isRecording = false;
     std::cout << "Timing Point: " << name << " has closed and stopped recording." << std::endl;
-   }
+    }
 }
 
 /**
- * @brief Reports the current status of the timing point
+ * @brief Reports the current status of the check point
  */
 void TimingPoint::reportStatus() const {
     std::cout << "Timing Point: " << name << " Status:" << std::endl;
@@ -54,11 +62,16 @@ void TimingPoint::reportStatus() const {
     std::cout << "  Cutoff Time: " << cutoffTime << std::endl;
     std::cout << "  Runners Recorded: " << currentLoad << std::endl;
 }
-
+/**
+ * @return The maximum number of runners this checkpoint can process.
+ */
 int TimingPoint::getCapacity() const {
     return capacity;
 }
 
+/**
+ * @return The number of runners recorded so far.
+ */
 int TimingPoint::getCurrentLoad() const {
     return currentLoad;
 }
@@ -98,6 +111,15 @@ void TimingPoint::update(const Notice& notice) {
             
         case EVACUATE:
             std::cout << "Timing Point: " << name << " maintaining backup records during evacuation." << std::endl;
+            backupMode = true;
+            break;
+        
+        case ROUTE_CHANGE:
+            std::cout << "Timing Point: " << name << " relocating to match the new route." << std::endl;
+            break;
+
+        case HAZARD_ALERT:
+            std::cout << "Timing Point: " << name << " continuing to record from a safe distance." << std::endl;
             backupMode = true;
             break;
             

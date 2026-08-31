@@ -1,0 +1,29 @@
+\doxysection{Medical\+Tent.\+h}
+\hypertarget{_medical_tent_8h_source}{}\label{_medical_tent_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MEDICALTENT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MEDICALTENT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}EventComponent.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_medical_tent_aa51dea9882a3a1a225a3226a7761b675}{MedicalTent}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{EventComponent}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ bedsAvailable;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{bool}\ isActive;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \doxymbox{\hyperlink{class_medical_tent_aa51dea9882a3a1a225a3226a7761b675}{MedicalTent}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ beds);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_medical_tent_a6b1496a802d13dc5d24e3656720daac6}{open}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_medical_tent_a44fdf33551266a5510df6f0e239e8ddc}{close}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_medical_tent_a523b0ba3aa2efd5e7808963eecc7fd06}{reportStatus}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_medical_tent_a7021ac3190511c23dc9d80c5184bd657}{getCapacity}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_medical_tent_a095ea97965a2824e84ed16ddbd068639}{getCurrentLoad}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_medical_tent_a98c11ca1b1a05dfb41745070df9ceb52}{update}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_notice}{Notice}}\&\ notice)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

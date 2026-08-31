@@ -1,0 +1,201 @@
+\doxysection{Marshal\+Team Class Reference}
+\hypertarget{class_marshal_team}{}\label{class_marshal_team}\index{MarshalTeam@{MarshalTeam}}
+Inheritance diagram for Marshal\+Team:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_marshal_team}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_marshal_team_a6cfd6b271812fa8b55eb7bcaa82d7d38}{Marshal\+Team}} (const std::\+string \&name, int size)
+\begin{DoxyCompactList}\small\item\em Constructs a marshal team. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_marshal_team_a94fdc6eea34ba5ea9f2e4bc6b09d5645}{open}} () override
+\begin{DoxyCompactList}\small\item\em Deploys the marshal team for active duty. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_marshal_team_aeb62c6962c97e077eaf434ebcd74a1ad}{close}} () override
+\begin{DoxyCompactList}\small\item\em This recalls the marshal team from active duty. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_marshal_team_ad99eb3953aded044ebd21307c8cfe0d2}{report\+Status}} () const override
+\begin{DoxyCompactList}\small\item\em Reports the current status of the marshal team. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_marshal_team_a2bd5d36681b17a849d62c97e1c9b85f2}{get\+Capacity}} () const override
+\item 
+int \doxymbox{\hyperlink{class_marshal_team_ad6a2d67f55a62ea94eebf33d5f6a2db0}{get\+Current\+Load}} () const override
+\item 
+void \doxymbox{\hyperlink{class_marshal_team_ae5fcd510e1d3389b82dda50ad9cb0bcc}{update}} (const \doxymbox{\hyperlink{class_notice}{Notice}} \&notice) override
+\begin{DoxyCompactList}\small\item\em Handles event notifications affecting the marshal team. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_notice}{Notice}} \doxymbox{\hyperlink{class_marshal_team_ab0d5abde0bd44a98b68c379330b3f19d}{create\+Hazard\+Notice}} (const std::\+string \&message, int severity)
+\begin{DoxyCompactList}\small\item\em Creates a hazard notice for reporting dangerous situations. \end{DoxyCompactList}\item 
+\Hypertarget{class_marshal_team_aeef65b58c296c987b8088b58b84cbb3e}\label{class_marshal_team_aeef65b58c296c987b8088b58b84cbb3e} 
+void {\bfseries redeploy} ()
+\begin{DoxyCompactList}\small\item\em Moves the marshal team to new positions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{Event\+Component}} (const std::\+string \&name, int capacity=0)
+\begin{DoxyCompactList}\small\item\em GoF Component role for the Composite pattern. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_event_component_a514ee7d351f3aeee4b611665fa91cbaf}{get\+Name}} () const
+\item 
+bool \doxymbox{\hyperlink{class_event_component_a41d0483abfcb7cbfd8cf53a77e141c2f}{is\+Open}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_observer}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor so derived Observers destroy correctly through a base-\/class pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string {\bfseries name}
+\item 
+bool {\bfseries open\+State}
+\item 
+int {\bfseries capacity}
+\item 
+int {\bfseries current\+Load}
+\end{DoxyCompactItemize}
+
+
+\label{class_marshal_team_doc-constructors}
+\Hypertarget{class_marshal_team_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_marshal_team_a6cfd6b271812fa8b55eb7bcaa82d7d38}\index{MarshalTeam@{MarshalTeam}!MarshalTeam@{MarshalTeam}}
+\index{MarshalTeam@{MarshalTeam}!MarshalTeam@{MarshalTeam}}
+\doxysubsubsection{\texorpdfstring{MarshalTeam()}{MarshalTeam()}}
+{\footnotesize\ttfamily \label{class_marshal_team_a6cfd6b271812fa8b55eb7bcaa82d7d38} 
+Marshal\+Team::\+\+Marshal\+Team (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{, }\item[{int}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a marshal team. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Human-\/readable identifier. \\
+\hline
+{\em size} & Number of marshals in the team (also used as capacity). \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_marshal_team_doc-func-members}
+\Hypertarget{class_marshal_team_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_marshal_team_aeb62c6962c97e077eaf434ebcd74a1ad}\index{MarshalTeam@{MarshalTeam}!close@{close}}
+\index{close@{close}!MarshalTeam@{MarshalTeam}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily \label{class_marshal_team_aeb62c6962c97e077eaf434ebcd74a1ad} 
+void Marshal\+Team::\+close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This recalls the marshal team from active duty. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_marshal_team_ab0d5abde0bd44a98b68c379330b3f19d}\index{MarshalTeam@{MarshalTeam}!createHazardNotice@{createHazardNotice}}
+\index{createHazardNotice@{createHazardNotice}!MarshalTeam@{MarshalTeam}}
+\doxysubsubsection{\texorpdfstring{createHazardNotice()}{createHazardNotice()}}
+{\footnotesize\ttfamily \label{class_marshal_team_ab0d5abde0bd44a98b68c379330b3f19d} 
+\doxymbox{\hyperlink{class_notice}{Notice}} Marshal\+Team::\+create\+Hazard\+Notice (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{message}{, }\item[{int}]{severity}{}\end{DoxyParamCaption})}
+
+
+
+Creates a hazard notice for reporting dangerous situations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Description of the hazard \\
+\hline
+{\em severity} & Severity level of 1-\/3, where 3 is most severe \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_marshal_team_a2bd5d36681b17a849d62c97e1c9b85f2}\index{MarshalTeam@{MarshalTeam}!getCapacity@{getCapacity}}
+\index{getCapacity@{getCapacity}!MarshalTeam@{MarshalTeam}}
+\doxysubsubsection{\texorpdfstring{getCapacity()}{getCapacity()}}
+{\footnotesize\ttfamily \label{class_marshal_team_a2bd5d36681b17a849d62c97e1c9b85f2} 
+int Marshal\+Team::\+get\+Capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+The team\textquotesingle{}s size. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_marshal_team_ad6a2d67f55a62ea94eebf33d5f6a2db0}\index{MarshalTeam@{MarshalTeam}!getCurrentLoad@{getCurrentLoad}}
+\index{getCurrentLoad@{getCurrentLoad}!MarshalTeam@{MarshalTeam}}
+\doxysubsubsection{\texorpdfstring{getCurrentLoad()}{getCurrentLoad()}}
+{\footnotesize\ttfamily \label{class_marshal_team_ad6a2d67f55a62ea94eebf33d5f6a2db0} 
+int Marshal\+Team::\+get\+Current\+Load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+How many marshals are currently assigned to a task. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_marshal_team_a94fdc6eea34ba5ea9f2e4bc6b09d5645}\index{MarshalTeam@{MarshalTeam}!open@{open}}
+\index{open@{open}!MarshalTeam@{MarshalTeam}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily \label{class_marshal_team_a94fdc6eea34ba5ea9f2e4bc6b09d5645} 
+void Marshal\+Team::\+open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Deploys the marshal team for active duty. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_marshal_team_ad99eb3953aded044ebd21307c8cfe0d2}\index{MarshalTeam@{MarshalTeam}!reportStatus@{reportStatus}}
+\index{reportStatus@{reportStatus}!MarshalTeam@{MarshalTeam}}
+\doxysubsubsection{\texorpdfstring{reportStatus()}{reportStatus()}}
+{\footnotesize\ttfamily \label{class_marshal_team_ad99eb3953aded044ebd21307c8cfe0d2} 
+void Marshal\+Team::\+report\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reports the current status of the marshal team. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_marshal_team_ae5fcd510e1d3389b82dda50ad9cb0bcc}\index{MarshalTeam@{MarshalTeam}!update@{update}}
+\index{update@{update}!MarshalTeam@{MarshalTeam}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_marshal_team_ae5fcd510e1d3389b82dda50ad9cb0bcc} 
+void Marshal\+Team::\+update (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_notice}{Notice}} \&}]{notice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles event notifications affecting the marshal team. 
+
+Different notice types trigger different behaviors:
+\begin{DoxyItemize}
+\item WEATHER\+\_\+\+ALERT: Redirects runners away from danger
+\item HAZARD\+\_\+\+ALERT: Responds to hazards with appropriate actions
+\item EVACUATE: Assists in evacuation procedures
+\item ROUTE\+\_\+\+CHANGE: Implements route changes
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em notice} & The notice being processed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_event_component_a1d950c5a511103e16d584eb61efe57d4}{Event\+Component}}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Marshal\+Team.\+h\item 
+\doxymbox{\hyperlink{_marshal_team_8cpp}{Marshal\+Team.\+cpp}}\end{DoxyCompactItemize}
