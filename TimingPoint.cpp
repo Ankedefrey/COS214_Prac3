@@ -100,6 +100,15 @@ void TimingPoint::update(const Notice& notice) {
             std::cout << "Timing Point: " << name << " maintaining backup records during evacuation." << std::endl;
             backupMode = true;
             break;
+        
+        case ROUTE_CHANGE:
+            std::cout << "Timing Point: " << name << " relocating to match the new route." << std::endl;
+            break;
+
+        case HAZARD_ALERT:
+            std::cout << "Timing Point: " << name << " continuing to record from a safe distance." << std::endl;
+            backupMode = true;
+            break;
             
         default:
             std::cout << "Timing Point: " << name << " received notice: " << notice.getMessage() << std::endl;
