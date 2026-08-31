@@ -9,26 +9,23 @@
 #include <iostream>
 #include <stdexcept>
 
-TimingPoint::TimingPoint(const std::string& name,
-                         int number,
-                         int cutoff,
-                         int capacity)
+TimingPoint::TimingPoint(const std::string& name, int number, int cutoff, int capacity)
     : EventComponent(name, capacity),
-      checkpointNumber(number),
-      cutoffTime(cutoff),
-      isRecording(false),
-      backupMode(false) {
+    checkpointNumber(number),
+    cutoffTime(cutoff),
+    isRecording(false),
+    backupMode(false) {
 }
 
 /**
  * @brief opens the timing point and starts recording
  */
 void TimingPoint::open() {
-   if(!openState) {
+    if(!openState) {
     openState = true;
     isRecording = true;
     std::cout << "Timing Point: " << name << " opened and recording." << std::endl;
-   }
+    }
 }
 
 /**
@@ -39,7 +36,7 @@ void TimingPoint::close() {
     openState = false;
     isRecording = false;
     std::cout << "Timing Point: " << name << " has closed and stopped recording." << std::endl;
-   }
+    }
 }
 
 /**
