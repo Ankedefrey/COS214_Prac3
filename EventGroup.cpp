@@ -20,7 +20,7 @@ EventGroup::EventGroup(const std::string& name)
 void EventGroup::addChild(EventComponent* child) {
     if (child != nullptr) {
         children.push_back(child);
-        std::cout << "EventGroup: " << name << "has adopted child '" << child->getName() << "'" << std::endl;
+        std::cout << "EventGroup: " << name << " has adopted child '" << child->getName() << "'" << std::endl;
     }
 }
 
@@ -68,7 +68,7 @@ bool EventGroup::transferChild(EventComponent* child, EventGroup* newParent) {
 void EventGroup::open() {
      if (!openState) {
         openState = true;
-        std::cout << "EventGroup: " << name << "has opened." << std::endl;
+        std::cout << "EventGroup: " << name << " has opened." << std::endl;
         
         for (EventComponent* child : children) {  //Delegate to all children
             child->open();

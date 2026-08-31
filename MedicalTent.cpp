@@ -75,7 +75,7 @@ void MedicalTent::update(const Notice& notice) {
             break;
             
         case EVACUATE:
-            std::cout << "Medical Tent: " << name << "' remains active during evacuation." << std::endl;
+            std::cout << "Medical Tent: " << name << " remains active during evacuation." << std::endl;
             if (openState && isActive) {
                 std::cout << "  Medical staff ready for evacuation casualties." << std::endl;
             }
