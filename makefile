@@ -5,8 +5,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra -g
 TARGET = eventflow
 
-OBJECTS = EventComponent.o EventGroup.o EventControl.o RaceEvent.o RaceZone.o CourseSector.o StartGate.o 
-        TimingPoint.o MedicalTent.o AidStation.o MarshalTeam.o Notice.o main.o
+OBJECTS = EventComponent.o EventGroup.o EventControl.o RaceEvent.o RaceZone.o CourseSector.o StartGate.o TimingPoint.o MedicalTent.o AidStation.o MarshalTeam.o Notice.o main.o
 
 all: $(TARGET)
 
@@ -50,7 +49,7 @@ Notice.o: Notice.cpp Notice.h
 	$(CXX) $(CXXFLAGS) -c Notice.cpp
 
 main.o: main.cpp
-    $(CXX) $(CXXFLAGS) -c main.cpp
+	$(CXX) $(CXXFLAGS) -c main.cpp
 
 clean:
 	rm -f *.o $(TARGET)
