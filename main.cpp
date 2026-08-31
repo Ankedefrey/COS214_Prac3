@@ -91,5 +91,25 @@ int main(){
     //Set the root in EventControl
     control.setRaceRoot(race);
 
+    //OBSERVER REGISTRATION - wire the notification cascade
+    //eventControl to raceZone to CourseSector to leaf
+
+    control.attach(startFinishZone);
+    control.attach(courseZone);
+
+    startFinishZone->attach(tarStartSector);
+    startFinishZone->attach(mainMedical);
+    courseZone->attach(gravelSector);
+
+    tarStartSector->attach(startGate);
+    tarStartSector->attach(startTiming);
+    forestSector->attach(forestAid);
+    forestSector->attach(forestMarshal);
+    gravelSector->attach(gravelAid);
+    gravelSector->attach(gravelTiming);
+    gravelSector->attach(gravelMarshal);
+
+
+
 
 }
