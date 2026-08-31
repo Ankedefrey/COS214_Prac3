@@ -1,6 +1,8 @@
 /**
  * @file EventControl.cpp
- * @brief Implementation of the EventControl (ConcreteSubject) that manages race root and issues notifications
+ * @brief GoF ConcreteSubject: the central control point for the event.
+ *
+ * Implementation of the EventControl (ConcreteSubject) that manages race root and issues notifications
  * @author Kayla Falconer
  */
 
@@ -10,7 +12,6 @@
 #include "Notice.h"
 
 #include <algorithm>
-#include <stdexcept>
 #include <iostream>
 
 /**
@@ -44,7 +45,7 @@ void EventControl::attach(Observer* observer) {
 /**
  * @brief Removes a registered observer from EventControl
  * @param observer The observer to deregister
- * 
+ *
  * @note The observer is not deleted, but removed from the list
  */
 
@@ -87,9 +88,7 @@ void EventControl::notify(const Notice& notice) {
  * @param message Description of the notice
  * @param severity Severity level
  */
-void EventControl::issueNotice(NoticeType type,
-                               const std::string& message,
-                               int severity) {
+void EventControl::issueNotice(NoticeType type, const std::string& message, int severity) {
     Notice notice(type, message, severity);
     std::cout << "EventControl: Issuing notice: " << message << " with severity: " << severity << std::endl;
     notify(notice);
@@ -107,7 +106,7 @@ void EventControl::issueNotice(const Notice& notice) {
 /**
  * @brief Sets the root of the race tree
  * @param root The root EventComponent (RaceEvent) to manage
- * 
+ *
  * @note If a new root is set, the old one is deleted
  */
 void EventControl::setRaceRoot(EventComponent* root) {

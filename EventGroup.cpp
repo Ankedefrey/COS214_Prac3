@@ -1,6 +1,23 @@
 /**
  * @file EventGroup.cpp
- * @brief Implementation of the EventGroup that manages EventComponent children and deals with ownership
+ * @brief GoF Composite role, and also a concrete Subject.
+ * Implementation of the EventGroup that manages EventComponent children and deals with ownership.
+ *
+ * EventGroup represents any area that contains other components,
+ * a zone, course sector, or the whole race.
+ * It owns its children (they are deleted by ~EventGroup) and delegates the common EventComponent
+ * operations to them recursively.
+ *
+ * EventGroup is deliberately also a Subject: an area can receive a notice
+ * from above (via its own update()) and forward it to whichever of its
+ * children are registered as observers.
+ * Ownership (children) and observation (observers) are two separate lists managed by two separate
+ * calls, addChild() does not automatically attach() a child as an observer.
+ * This keeps "who owns this" independent of "who hears about this":
+ * a child can be owned without observing its parent, and
+ * transferChild() can move ownership without touching
+ * observer registrations at all, by design.
+ *
  * @author Jezelle Govender
  */
 #include "EventGroup.h"
@@ -8,8 +25,9 @@
 
 #include <algorithm>
 #include <iostream>
-#include <stdexcept>
 
+
+/// @brief Constructs an empty group with the given name.
 EventGroup::EventGroup(const std::string& name)
     : EventComponent(name, 0) {
 }
@@ -66,7 +84,7 @@ bool EventGroup::transferChild(EventComponent* child, EventGroup* newParent) {
  * @brief opens the group and all children, and delegates to all children
  */
 void EventGroup::open() {
-     if (!openState) {
+    if (!openState) {
         openState = true;
         std::cout << "EventGroup: " << name << " has opened." << std::endl;
         
@@ -76,6 +94,7 @@ void EventGroup::open() {
     }
 }
 
+/// @brief Closes this group and recursively closes every child.
 void EventGroup::close() {
     if (openState) {
         openState = false;
@@ -97,12 +116,13 @@ void EventGroup::reportStatus() const {
     std::cout << "  Observers Count: " << observers.size() << std::endl;
     std::cout << "  Total Capacity: " << getCapacity() << std::endl;
     std::cout << "  Total Load: " << getCurrentLoad() << std::endl;
-   
+
     for (const EventComponent* child : children) {
         child->reportStatus();
     }
 }
 
+/// @return The sum of every owned child's capacity.
 int EventGroup::getCapacity() const {
     int total = 0;
     for (const EventComponent* child : children) {
@@ -110,6 +130,8 @@ int EventGroup::getCapacity() const {
     }
     return total;
 }
+
+/// @return The sum of every owned child's current load.
 
 int EventGroup::getCurrentLoad() const {
     int total = 0;
@@ -186,7 +208,7 @@ void EventGroup::notify(const Notice& notice) {
  * @brief Destroys the EventGroup and recursively deletes all owned children.
  */
 EventGroup::~EventGroup() {
-      std::cout << "EventGroup: " << name << " destructor: deleting " << children.size() << " children" << std::endl;
+    std::cout << "EventGroup: " << name << " destructor: deleting " << children.size() << " children" << std::endl;
 
     for (EventComponent* child : children) {  // delete all the owned children
         delete child;

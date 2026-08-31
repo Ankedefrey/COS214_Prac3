@@ -1,6 +1,13 @@
 /**
  * @file MarshalTeam.cpp
- * @brief This is an implementation of MarshalTeam that provides safety during the race.
+ * @brief Concrete Leaf: a team of marshals responsible for runner safety.
+ * This is an implementation of MarshalTeam that provides safety during the race.
+ *
+ * GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer),
+ * with an extra ability of its own,
+ * it can originate a HAZARD_ALERT Notice via createHazardNotice() rather than only ever reacting to
+ * notices issued by EventControl.
+ *
  * @author Jezelle Govender
  */
 
@@ -8,12 +15,15 @@
 #include "Notice.h"
 
 #include <iostream>
-#include <stdexcept>
 
+
+/**
+     * @brief Constructs a marshal team.
+     * @param name Human-readable identifier.
+     * @param size Number of marshals in the team (also used as capacity).
+     */
 MarshalTeam::MarshalTeam(const std::string& name, int size)
-    : EventComponent(name, size),
-      teamSize(size),
-      isDeployed(false) {
+    : EventComponent(name, size), teamSize(size), isDeployed(false) {
 }
 
 /**
@@ -49,23 +59,25 @@ void MarshalTeam::reportStatus() const {
     std::cout << "  Current Load: " << currentLoad << std::endl;
 }
 
+/// @return The team's size.
 int MarshalTeam::getCapacity() const {
     return teamSize;
 }
 
+/// @return How many marshals are currently assigned to a task.
 int MarshalTeam::getCurrentLoad() const {
     return currentLoad;
 }
 
 /**
  * @brief Handles event notifications affecting the marshal team.
- * 
+ *
  * Different notice types trigger different behaviors:
  * - WEATHER_ALERT: Redirects runners away from danger
  * - HAZARD_ALERT: Responds to hazards with appropriate actions
  * - EVACUATE: Assists in evacuation procedures
  * - ROUTE_CHANGE: Implements route changes
- * 
+ *
  * @param notice The notice being processed
  */
 void MarshalTeam::update(const Notice& notice) {

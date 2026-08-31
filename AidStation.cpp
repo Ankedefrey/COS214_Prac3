@@ -1,6 +1,11 @@
 /**
  * @file AidStation.cpp
- * @brief This is an implementation of the AidStation that provides hydration and nutrition to runners during the race. 
+ * @brief Concrete Leaf: a hydration/nutrition station serving runners.
+ * GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer,
+ * inherited via EventComponent)
+ * it reacts to notices such as WEATHER_ALERT, SUPPLY_ALERT, EVACUATE and HAZARD_ALERT differently from
+ * every other leaf type in the system.
+ *
  * @author Jezelle Govender
  */
 
@@ -8,8 +13,14 @@
 #include "Notice.h"
 
 #include <iostream>
-#include <stdexcept>
 
+/**
+     * @brief Constructs an aid station.
+     * @param name Human-readable identifier.
+     * @param capacity Maximum number of runners it can serve at once.
+     * @param stock Starting stock level (units of supplies).
+     * @param threshold Stock level below which isStockLow() reports true.
+     */
 AidStation::AidStation(const std::string& name, int capacity, int stock, int threshold): EventComponent(name, capacity),
     stockLevel(stock),
     lowStockThreshold(threshold),
@@ -28,6 +39,7 @@ void AidStation::open() {
     }
 }
 
+/// @brief Closes the station and stops serving runners.
 void AidStation::close() {
     if(openState == true) {
         openState = false;
@@ -36,6 +48,7 @@ void AidStation::close() {
     }
 }
 
+/// @brief Prints this station's current status.
 void AidStation::reportStatus() const {
     std::cout << "Aid Station: " << name << " Status: " << std::endl;
     std::cout << "  State: " << (openState ? "Open" : "Closed") << std::endl;
@@ -54,6 +67,7 @@ int AidStation::getCapacity() const {
     return capacity;
 }
 
+/// @return The number of runners currently being served.
 int AidStation::getCurrentLoad() const {
     return currentLoad;
 }

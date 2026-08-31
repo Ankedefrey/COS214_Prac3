@@ -1,20 +1,31 @@
 /**
  * @file MedicalTent.cpp
- * @brief Implementation of the MedicalTent that provides emergency medical services in the race.
+ * @brief Concrete Leaf: emergency medical services for the event.
+ * Implementation of the MedicalTent that provides emergency medical services in the race.
+ *
+ * GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).
+ * Deliberately stays active through most notices (including EVACUATE and
+ * WEATHER_ALERT) where other leaves pause or close, since a medical tent
+ * needs to remain available for casualties precisely when other units are
+ * suspending service.
+ *
  * @author Jezelle Govender
  */
 #include "MedicalTent.h"
 #include "Notice.h"
 
 #include <iostream>
-#include <stdexcept>
 
+/**
+     * @brief Constructs a medical tent.
+     * @param name Human-readable identifier.
+     * @param beds Number of beds available (also used as capacity).
+     */
 MedicalTent::MedicalTent(const std::string& name, int beds)
-    : EventComponent(name, beds),
-      bedsAvailable(beds),
-      isActive(false) {
+    : EventComponent(name, beds), bedsAvailable(beds), isActive(false) {
 }
 
+/// @brief Activates the tent.
 void MedicalTent::open() {
     if (!openState) {
         openState = true;
@@ -23,6 +34,7 @@ void MedicalTent::open() {
     }
 }
 
+/// @brief Deactivates the tent.
 void MedicalTent::close() {
     if (openState) {
         openState = false;
