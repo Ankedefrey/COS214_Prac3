@@ -35,6 +35,7 @@ int main(){
     // COMPOSITE CONSTRUCTION
 
     //BUILDING THE EVENT TREE
+    std::cout<<"BUILDING THE EVENT TREE\n"<<std::endl;
     //Level 1: The Root Race Event
     RaceEvent* race = new RaceEvent("Mixed Terrain Race 2026");
     
@@ -91,8 +92,11 @@ int main(){
     //Set the root in EventControl
     control.setRaceRoot(race);
 
+
     //OBSERVER REGISTRATION - wire the notification cascade
     //eventControl to raceZone to CourseSector to leaf
+
+    std::cout<<"\nREGISTERING OBSERVERS\n"<<std::endl;
 
     control.attach(startFinishZone);
     control.attach(courseZone);
@@ -110,9 +114,11 @@ int main(){
     gravelSector->attach(gravelMarshal);
 
     //open event (composite)
+    std::cout<<"\nOPENING THE EVENT\n"<<std::endl;
     control.getRaceRoot()->open();
 
     //leaf specific operations
+    std::cout<<"LEAF OPERATIONS\n"<<std::endl;
     startGate->admitRunners(25);
     startGate->admitRunners(30); //exceeds batch size
 
@@ -123,7 +129,7 @@ int main(){
     startTiming->recordRunner(102, 1900);//past cutoff
 
     //NOTICE TYPES
-    std::cout<<"WEATHER ALERT"<<std::endl;
+    std::cout<<"\nWEATHER ALERT"<<std::endl;
     control.issueNotice(WEATHER_ALERT, "Severe storm approaching", 2);
     std::cout<<"CAPACITY ALERT"<<std::endl;
     control.issueNotice(CAPACITY_ALERT, "Start nearing maximum runners", 1);
@@ -133,37 +139,37 @@ int main(){
     //REGISTRATION CHANGE
     //detach an observer
 
-    std::cout<<"Detaching gravelMarshal from gravelSector"<<std::endl;
+    std::cout<<"\nDetaching gravelMarshal from gravelSector\n"<<std::endl;
     gravelSector->detach(gravelMarshal);
 
-    std::cout<<"HAZARD_ALERT reissued: gravelMarshal must NOT react \n gravelAid/gravelTiming still should"<<std::endl;
+    std::cout<<"\nHAZARD_ALERT reissued: gravelMarshal must NOT react \n gravelAid/gravelTiming still should\n"<<std::endl;
     control.issueNotice(HAZARD_ALERT, "Rockslide reported on the gravel course", 2);
 
     //RUNTIME REORGANISATION
     // transfer gravelmarshal to forestSector
         //Ownership (transferChild) and observer registration (attach) are updatd as two seperate steps
-    std::cout<<"Transferring gravelMarshal to forestSector"<<std::endl;
+    std::cout<<"\nTransferring gravelMarshal to forestSector\n"<<std::endl;
     forestSector->transferChild(gravelMarshal, forestSector);
     forestSector->attach(gravelMarshal); //now observes its new parent instead
 
-    std::cout<<"Route changed issued: gravelMarshal now reacts as part of Forest Sector's cascade"<<std::endl;
+    std::cout<<"\nRoute changed issued: gravelMarshal now reacts as part of Forest Sector's cascade\n"<<std::endl;
     control.issueNotice(ROUTE_CHANGE, "Course rerouted around the rockslide", 2);
 
     //COMPOSITE TRAVERSAL
-    std::cout<<"CAPACITY QUERIES"<<std::endl;
+    std::cout<<"\nCAPACITY QUERIES\n"<<std::endl;
     std::cout<<"Total race capacity: "<<control.getRaceRoot()->getCapacity()<<std::endl;
     std::cout<<"Total race current load: "<<control.getRaceRoot()->getCurrentLoad()<<std::endl;
     std::cout<<"Forest sector capacity (after transfer): "<<forestSector->getCapacity()<<std::endl;
     std::cout<<"Gravel sector capacity (after transfer): "<<gravelSector->getCapacity()<<std::endl;
 
-    std::cout<<"FULL STATUS REPORT"<<std::endl;
+    std::cout<<"\nFULL STATUS REPORT\n"<<std::endl;
     control.getRaceRoot()->reportStatus();
 
     //CLEAN SHUTDOWN
         // EventControl owns the root
         //its destructor recursively deletes the entire owned subtree exactly once
         //(automatically when control goes out of scope)
-    std::cout<<"==Event Ending=="<<std::endl;
+    std::cout<<"\n==Event Ending==\n"<<std::endl;
     std::cout<<"control is going out of scope \n ~EventControl will delete raceRoot \n which recursively deletes every owned child exactly once \n"<<std::endl;
 
 }
