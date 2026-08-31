@@ -109,7 +109,20 @@ int main(){
     gravelSector->attach(gravelTiming);
     gravelSector->attach(gravelMarshal);
 
+    //open event (composite)
+    control.getRaceRoot()->open();
 
+    //leaf specific operations
+    startGate->admitRunners(25);
+    startGate->admitRunners(30); //exceeds batch size
+
+    forestAid->serveRunner(5);
+    forestAid->serveRunner(3);
+
+    startTiming->recordRunner(101, 1200);
+    startTiming->recordRunner(102, 1900);//past cutoff
+
+    
 
 
 }
