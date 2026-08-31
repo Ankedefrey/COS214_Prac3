@@ -130,7 +130,14 @@ int main(){
     std::cout<<"EVACUATION ALERT"<<std::endl;
     control.issueNotice(EVACUATE, "Evacuate the gravel sector - lightning risk", 3);
 
-    
+    //REGISTRATION CHANGE
+    //detach an observer
+
+    std::cout<<"Detaching gravelMarshal from gravelSector"<<std::endl;
+    gravelSector->detach(gravelMarshal);
+
+    std::cout<<"HAZARD_ALERT reissued: gravelMarshal must NOT react \n gravelAid/gravelTiming still should"<<std::endl;
+    control.issueNotice(HAZARD_ALERT, "Rockslide reported on the gravel course", 2);
 
 
 }
