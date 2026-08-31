@@ -1,0 +1,43 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Demonstrating a sample event with at least three levels of nesting for Task 2.  
+
+
+{\ttfamily \+\#include "{}Event\+Control.\+h"{}}\newline
+{\ttfamily \+\#include "{}Race\+Event.\+h"{}}\newline
+{\ttfamily \+\#include "{}Race\+Zone.\+h"{}}\newline
+{\ttfamily \+\#include "{}Course\+Sector.\+h"{}}\newline
+{\ttfamily \+\#include "{}Start\+Gate.\+h"{}}\newline
+{\ttfamily \+\#include "{}Timing\+Point.\+h"{}}\newline
+{\ttfamily \+\#include "{}Medical\+Tent.\+h"{}}\newline
+{\ttfamily \+\#include "{}Aid\+Station.\+h"{}}\newline
+{\ttfamily \+\#include "{}Marshal\+Team.\+h"{}}\newline
+{\ttfamily \+\#include "{}Terrain\+Type.\+h"{}}\newline
+{\ttfamily \+\#include "{}Notice\+Type.\+h"{}}\newline
+{\ttfamily \+\#include "{}Notice.\+h"{}}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Demonstrating a sample event with at least three levels of nesting for Task 2. 
+
+Builds the Event\+Flow ownership tree, wires the \doxylink{class_observer}{Observer} cascade on top of it and runs a demonstration: Composite construction, \doxylink{class_observer}{Observer} registration, three-\/plus notification types, a notification cascading through a three-\/plus runtime levels, a registration change, a runtime re-\/organisation that updates both ownership and observer registration, composite traversal and a clean exit.
+
+\begin{DoxyAuthor}{Author}
+Jezelle Govender
+\end{DoxyAuthor}
+The nesting I have created it as follows: Level 1: \doxylink{class_race_event}{Race\+Event} (Root) Level 2: Race\+Zones (start\+Finish\+Zone, course\+Zone) Level 3: Course\+Sectors (tar\+Start\+Sector, forest\+Sector, gravel\+Sector) Level 4: Leaf units (\doxylink{class_start_gate}{Start\+Gate}, \doxylink{class_timing_point}{Timing\+Point}, \doxylink{class_medical_tent}{Medical\+Tent}, \doxylink{class_aid_station}{Aid\+Station}, \doxylink{class_marshal_team}{Marshal\+Team})
+
+Nesting: Level 1: \doxylink{class_race_event}{Race\+Event} (Root) Level 2: Race\+Zones (start\+Finish\+Zone, course\+Zone) Level 3: Course\+Sectors (tar\+Start\+Sector, forest\+Sector, gravel\+Sector) Level 4: Leaf units (\doxylink{class_start_gate}{Start\+Gate}, \doxylink{class_timing_point}{Timing\+Point}, \doxylink{class_medical_tent}{Medical\+Tent}, \doxylink{class_aid_station}{Aid\+Station}, \doxylink{class_marshal_team}{Marshal\+Team})
+
+\begin{DoxyAuthor}{Author}
+Anke de Frey 
+\end{DoxyAuthor}

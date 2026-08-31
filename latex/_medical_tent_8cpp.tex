@@ -1,0 +1,20 @@
+\doxysection{Medical\+Tent.\+cpp File Reference}
+\hypertarget{_medical_tent_8cpp}{}\label{_medical_tent_8cpp}\index{MedicalTent.cpp@{MedicalTent.cpp}}
+
+
+Concrete Leaf: emergency medical services for the event. Implementation of the \doxylink{class_medical_tent}{Medical\+Tent} that provides emergency medical services in the race.  
+
+
+{\ttfamily \+\#include "{}Medical\+Tent.\+h"{}}\newline
+{\ttfamily \+\#include "{}Notice.\+h"{}}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+
+
+\doxysubsection{Detailed Description}
+Concrete Leaf: emergency medical services for the event. Implementation of the \doxylink{class_medical_tent}{Medical\+Tent} that provides emergency medical services in the race. 
+
+GoF role: Concrete\+Component (Composite) and Concrete\+Observer (\doxylink{class_observer}{Observer}). Deliberately stays active through most notices (including EVACUATE and WEATHER\+\_\+\+ALERT) where other leaves pause or close, since a medical tent needs to remain available for casualties precisely when other units are suspending service.
+
+\begin{DoxyAuthor}{Author}
+Jezelle Govender 
+\end{DoxyAuthor}

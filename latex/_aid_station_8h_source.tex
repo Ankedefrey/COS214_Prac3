@@ -1,0 +1,37 @@
+\doxysection{Aid\+Station.\+h}
+\hypertarget{_aid_station_8h_source}{}\label{_aid_station_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ AIDSTATION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ AIDSTATION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}EventComponent.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_aid_station_a2bb9db40e495f53197839b66cddf5cbf}{AidStation}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{EventComponent}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ stockLevel;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ lowStockThreshold;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ isServing;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{class_aid_station_a2bb9db40e495f53197839b66cddf5cbf}{AidStation}}(\textcolor{keyword}{const}\ std::string\&\ name,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ capacity,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ stock,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ threshold);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_aid_station_a589129760790ebc8ecc4ef4e1bb6446f}{open}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_aid_station_a7bad453539aa1a6a927abf6b280ad5e9}{close}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_aid_station_a16782a07188bfc87fb111b5134f53cad}{reportStatus}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_aid_station_a9a68500d9f20975f3a7805a58d58c4d7}{getCapacity}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_aid_station_a7be61d208991ee9e64c414fd0f2b4a1f}{getCurrentLoad}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_aid_station_a94d3ca57e893c4953a5ec3754d0be868}{update}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_notice}{Notice}}\&\ notice)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_aid_station_abbc90442d21085010489ebe7b2612a01}{serveRunner}}(\textcolor{keywordtype}{int}\ unitsUsed);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_aid_station_a076c2b827481e1cb6fb99ab6ab3a077b}{isStockLow}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_aid_station_a3f68ab9b97a7b8b5edcf3f8430619daa}{restock}}(\textcolor{keywordtype}{int}\ amount);}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

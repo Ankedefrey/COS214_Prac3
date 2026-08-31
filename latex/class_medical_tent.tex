@@ -1,0 +1,173 @@
+\doxysection{Medical\+Tent Class Reference}
+\hypertarget{class_medical_tent}{}\label{class_medical_tent}\index{MedicalTent@{MedicalTent}}
+Inheritance diagram for Medical\+Tent:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_medical_tent}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_medical_tent_aa51dea9882a3a1a225a3226a7761b675}{Medical\+Tent}} (const std::\+string \&name, int beds)
+\begin{DoxyCompactList}\small\item\em Constructs a medical tent. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_medical_tent_a6b1496a802d13dc5d24e3656720daac6}{open}} () override
+\begin{DoxyCompactList}\small\item\em Activates the tent. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_medical_tent_a44fdf33551266a5510df6f0e239e8ddc}{close}} () override
+\begin{DoxyCompactList}\small\item\em Deactivates the tent. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_medical_tent_a523b0ba3aa2efd5e7808963eecc7fd06}{report\+Status}} () const override
+\begin{DoxyCompactList}\small\item\em Reports the current status of the medical tent. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_medical_tent_a7021ac3190511c23dc9d80c5184bd657}{get\+Capacity}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the maximum capacity beds of the medical tent. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_medical_tent_a095ea97965a2824e84ed16ddbd068639}{get\+Current\+Load}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the current load on the medical tent. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_medical_tent_a98c11ca1b1a05dfb41745070df9ceb52}{update}} (const \doxymbox{\hyperlink{class_notice}{Notice}} \&notice) override
+\begin{DoxyCompactList}\small\item\em Handles event notifications affecting the medical tent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{Event\+Component}} (const std::\+string \&name, int capacity=0)
+\begin{DoxyCompactList}\small\item\em GoF Component role for the Composite pattern. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_event_component_a514ee7d351f3aeee4b611665fa91cbaf}{get\+Name}} () const
+\item 
+bool \doxymbox{\hyperlink{class_event_component_a41d0483abfcb7cbfd8cf53a77e141c2f}{is\+Open}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_observer}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor so derived Observers destroy correctly through a base-\/class pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string {\bfseries name}
+\item 
+bool {\bfseries open\+State}
+\item 
+int {\bfseries capacity}
+\item 
+int {\bfseries current\+Load}
+\end{DoxyCompactItemize}
+
+
+\label{class_medical_tent_doc-constructors}
+\Hypertarget{class_medical_tent_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_medical_tent_aa51dea9882a3a1a225a3226a7761b675}\index{MedicalTent@{MedicalTent}!MedicalTent@{MedicalTent}}
+\index{MedicalTent@{MedicalTent}!MedicalTent@{MedicalTent}}
+\doxysubsubsection{\texorpdfstring{MedicalTent()}{MedicalTent()}}
+{\footnotesize\ttfamily \label{class_medical_tent_aa51dea9882a3a1a225a3226a7761b675} 
+Medical\+Tent::\+\+Medical\+Tent (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{, }\item[{int}]{beds}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a medical tent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Human-\/readable identifier. \\
+\hline
+{\em beds} & Number of beds available (also used as capacity). \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_medical_tent_doc-func-members}
+\Hypertarget{class_medical_tent_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_medical_tent_a44fdf33551266a5510df6f0e239e8ddc}\index{MedicalTent@{MedicalTent}!close@{close}}
+\index{close@{close}!MedicalTent@{MedicalTent}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily \label{class_medical_tent_a44fdf33551266a5510df6f0e239e8ddc} 
+void Medical\+Tent::\+close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Deactivates the tent. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_medical_tent_a7021ac3190511c23dc9d80c5184bd657}\index{MedicalTent@{MedicalTent}!getCapacity@{getCapacity}}
+\index{getCapacity@{getCapacity}!MedicalTent@{MedicalTent}}
+\doxysubsubsection{\texorpdfstring{getCapacity()}{getCapacity()}}
+{\footnotesize\ttfamily \label{class_medical_tent_a7021ac3190511c23dc9d80c5184bd657} 
+int Medical\+Tent::\+get\+Capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the maximum capacity beds of the medical tent. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_medical_tent_a095ea97965a2824e84ed16ddbd068639}\index{MedicalTent@{MedicalTent}!getCurrentLoad@{getCurrentLoad}}
+\index{getCurrentLoad@{getCurrentLoad}!MedicalTent@{MedicalTent}}
+\doxysubsubsection{\texorpdfstring{getCurrentLoad()}{getCurrentLoad()}}
+{\footnotesize\ttfamily \label{class_medical_tent_a095ea97965a2824e84ed16ddbd068639} 
+int Medical\+Tent::\+get\+Current\+Load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the current load on the medical tent. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_medical_tent_a6b1496a802d13dc5d24e3656720daac6}\index{MedicalTent@{MedicalTent}!open@{open}}
+\index{open@{open}!MedicalTent@{MedicalTent}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily \label{class_medical_tent_a6b1496a802d13dc5d24e3656720daac6} 
+void Medical\+Tent::\+open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Activates the tent. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_medical_tent_a523b0ba3aa2efd5e7808963eecc7fd06}\index{MedicalTent@{MedicalTent}!reportStatus@{reportStatus}}
+\index{reportStatus@{reportStatus}!MedicalTent@{MedicalTent}}
+\doxysubsubsection{\texorpdfstring{reportStatus()}{reportStatus()}}
+{\footnotesize\ttfamily \label{class_medical_tent_a523b0ba3aa2efd5e7808963eecc7fd06} 
+void Medical\+Tent::\+report\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reports the current status of the medical tent. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_medical_tent_a98c11ca1b1a05dfb41745070df9ceb52}\index{MedicalTent@{MedicalTent}!update@{update}}
+\index{update@{update}!MedicalTent@{MedicalTent}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_medical_tent_a98c11ca1b1a05dfb41745070df9ceb52} 
+void Medical\+Tent::\+update (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_notice}{Notice}} \&}]{notice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles event notifications affecting the medical tent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em notice} & The notice being processed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_event_component_a1d950c5a511103e16d584eb61efe57d4}{Event\+Component}}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Medical\+Tent.\+h\item 
+\doxymbox{\hyperlink{_medical_tent_8cpp}{Medical\+Tent.\+cpp}}\end{DoxyCompactItemize}

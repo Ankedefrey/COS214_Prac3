@@ -1,0 +1,27 @@
+var files_dup =
+[
+    [ "AidStation.cpp", "_aid_station_8cpp.html", null ],
+    [ "AidStation.h", "_aid_station_8h_source.html", null ],
+    [ "CourseSector.h", "_course_sector_8h_source.html", null ],
+    [ "EventComponent.h", "_event_component_8h_source.html", null ],
+    [ "EventControl.cpp", "_event_control_8cpp.html", null ],
+    [ "EventControl.h", "_event_control_8h_source.html", null ],
+    [ "EventGroup.cpp", "_event_group_8cpp.html", null ],
+    [ "EventGroup.h", "_event_group_8h_source.html", null ],
+    [ "main.cpp", "main_8cpp.html", null ],
+    [ "MarshalTeam.cpp", "_marshal_team_8cpp.html", null ],
+    [ "MarshalTeam.h", "_marshal_team_8h_source.html", null ],
+    [ "MedicalTent.cpp", "_medical_tent_8cpp.html", null ],
+    [ "MedicalTent.h", "_medical_tent_8h_source.html", null ],
+    [ "Notice.h", "_notice_8h_source.html", null ],
+    [ "NoticeType.h", "_notice_type_8h_source.html", null ],
+    [ "Observer.h", "_observer_8h_source.html", null ],
+    [ "RaceEvent.h", "_race_event_8h_source.html", null ],
+    [ "RaceZone.h", "_race_zone_8h_source.html", null ],
+    [ "StartGate.cpp", "_start_gate_8cpp.html", null ],
+    [ "StartGate.h", "_start_gate_8h_source.html", null ],
+    [ "Subject.h", "_subject_8h_source.html", null ],
+    [ "TerrainType.h", "_terrain_type_8h_source.html", null ],
+    [ "TimingPoint.cpp", "_timing_point_8cpp.html", null ],
+    [ "TimingPoint.h", "_timing_point_8h_source.html", null ]
+];

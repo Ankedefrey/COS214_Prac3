@@ -1,0 +1,29 @@
+\doxysection{Notice.\+h}
+\hypertarget{_notice_8h_source}{}\label{_notice_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ NOTICE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ NOTICE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}NoticeType.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_notice_a12481bea4e9012a04a22ba93d233c4fe}{Notice}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ NoticeType\ type;}
+\DoxyCodeLine{00011\ \ \ \ \ std::string\ message;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ severity;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{class_notice_a12481bea4e9012a04a22ba93d233c4fe}{Notice}}(NoticeType\ type,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ message,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ severity\ =\ 1);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ NoticeType\ \doxymbox{\hyperlink{class_notice_a7a05c62929c0d946e9cd205b595cbdc3}{getType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_notice_a535ec24c6347d3b92c98a1131b52d6be}{getMessage}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_notice_aa6bada2d07b30c77ac80c48798a48225}{getSeverity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

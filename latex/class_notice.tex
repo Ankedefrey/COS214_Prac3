@@ -1,0 +1,77 @@
+\doxysection{Notice Class Reference}
+\hypertarget{class_notice}{}\label{class_notice}\index{Notice@{Notice}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_notice_a12481bea4e9012a04a22ba93d233c4fe}{Notice}} (Notice\+Type type, const std::\+string \&message, int severity=1)
+\begin{DoxyCompactList}\small\item\em The message passed from a \doxylink{class_subject}{Subject} to its Observers. \end{DoxyCompactList}\item 
+Notice\+Type \doxymbox{\hyperlink{class_notice_a7a05c62929c0d946e9cd205b595cbdc3}{get\+Type}} () const
+\item 
+std::\+string \doxymbox{\hyperlink{class_notice_a535ec24c6347d3b92c98a1131b52d6be}{get\+Message}} () const
+\item 
+int \doxymbox{\hyperlink{class_notice_aa6bada2d07b30c77ac80c48798a48225}{get\+Severity}} () const
+\end{DoxyCompactItemize}
+
+
+\label{class_notice_doc-constructors}
+\Hypertarget{class_notice_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_notice_a12481bea4e9012a04a22ba93d233c4fe}\index{Notice@{Notice}!Notice@{Notice}}
+\index{Notice@{Notice}!Notice@{Notice}}
+\doxysubsubsection{\texorpdfstring{Notice()}{Notice()}}
+{\footnotesize\ttfamily \label{class_notice_a12481bea4e9012a04a22ba93d233c4fe} 
+Notice::\+\+Notice (\begin{DoxyParamCaption}\item[{Notice\+Type}]{type}{, }\item[{const std::\+string \&}]{message}{, }\item[{int}]{severity}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+The message passed from a \doxylink{class_subject}{Subject} to its Observers. 
+
+This is the payload used by this project\textquotesingle{}s "{}push"{} \doxylink{class_observer}{Observer} implementation: it carries everything an \doxylink{class_observer}{Observer} needs (what happened, a human-\/readable description, and how serious it is) so the \doxylink{class_observer}{Observer} never needs to call back into the \doxylink{class_subject}{Subject} to ask for more information.
+
+Constructs a \doxylink{class_notice}{Notice}. 
+\begin{DoxyParams}{Parameters}
+{\em type} & The category of notice, see Notice\+Type. \\
+\hline
+{\em message} & Human-\/readable description shown in status output. \\
+\hline
+{\em severity} & How serious this notice is. Higher means more severe, concrete Observers may branch on this \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_notice_doc-func-members}
+\Hypertarget{class_notice_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_notice_a535ec24c6347d3b92c98a1131b52d6be}\index{Notice@{Notice}!getMessage@{getMessage}}
+\index{getMessage@{getMessage}!Notice@{Notice}}
+\doxysubsubsection{\texorpdfstring{getMessage()}{getMessage()}}
+{\footnotesize\ttfamily \label{class_notice_a535ec24c6347d3b92c98a1131b52d6be} 
+std::\+string Notice::\+get\+Message (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The human-\/readable description of this notice. 
+\end{DoxyReturn}
+\Hypertarget{class_notice_aa6bada2d07b30c77ac80c48798a48225}\index{Notice@{Notice}!getSeverity@{getSeverity}}
+\index{getSeverity@{getSeverity}!Notice@{Notice}}
+\doxysubsubsection{\texorpdfstring{getSeverity()}{getSeverity()}}
+{\footnotesize\ttfamily \label{class_notice_aa6bada2d07b30c77ac80c48798a48225} 
+int Notice::\+get\+Severity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The severity level of this notice. 
+\end{DoxyReturn}
+\Hypertarget{class_notice_a7a05c62929c0d946e9cd205b595cbdc3}\index{Notice@{Notice}!getType@{getType}}
+\index{getType@{getType}!Notice@{Notice}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_notice_a7a05c62929c0d946e9cd205b595cbdc3} 
+Notice\+Type Notice::\+get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The category of this notice. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Notice.\+h\item 
+Notice.\+cpp\end{DoxyCompactItemize}

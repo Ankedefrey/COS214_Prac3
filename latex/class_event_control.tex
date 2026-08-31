@@ -1,0 +1,175 @@
+\doxysection{Event\+Control Class Reference}
+\hypertarget{class_event_control}{}\label{class_event_control}\index{EventControl@{EventControl}}
+Inheritance diagram for Event\+Control:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_event_control}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_event_control_ae7506622df5596f7385e23ca8e640a5c}\label{class_event_control_ae7506622df5596f7385e23ca8e640a5c} 
+{\bfseries Event\+Control} ()
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_event_control}{Event\+Control} with no race root. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_control_a3b750b586a6c04f94a46f6a657c69e12}{attach}} (\doxymbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}observer) override
+\begin{DoxyCompactList}\small\item\em Registers an observer to receive notifications from \doxylink{class_event_control}{Event\+Control}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_control_a082ba83cbdc80ff220232967103db5b7}{detach}} (\doxymbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}observer) override
+\begin{DoxyCompactList}\small\item\em Removes a registered observer from \doxylink{class_event_control}{Event\+Control}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_control_ad58e12a841d8f06cc17b8b0d8da1000b}{notify}} (const \doxymbox{\hyperlink{class_notice}{Notice}} \&notice) override
+\begin{DoxyCompactList}\small\item\em Notifies all registered observers with given notice. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_control_ad77465f9d79769ed69bb0eba9511d81d}{issue\+Notice}} (Notice\+Type type, const std::\+string \&message, int severity=1)
+\begin{DoxyCompactList}\small\item\em Creates and issues a notice of the given type. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_control_ac21db8f4791c306a2b214309b4e400e6}{issue\+Notice}} (const \doxymbox{\hyperlink{class_notice}{Notice}} \&notice)
+\begin{DoxyCompactList}\small\item\em Issues an existing notice -\/ overloading. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_control_a0aeebab0bad7fe7269c145910312f5bc}{set\+Race\+Root}} (\doxymbox{\hyperlink{class_event_component}{Event\+Component}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Sets the root of the race tree. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_event_component}{Event\+Component}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_event_control_a255bf3ab4f055e8b3b2a0df434148be9}{get\+Race\+Root}} () const
+\begin{DoxyCompactList}\small\item\em Get current race root. \end{DoxyCompactList}\item 
+\Hypertarget{class_event_control_a0123af35e071d2d3174615cd7b72304e}\label{class_event_control_a0123af35e071d2d3174615cd7b72304e} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Event\+Control} () override
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_event_control}{Event\+Control} and deletes the race root. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_subject}{Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor so derived Subjects destroy correctly through a base-\/class pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{class_event_control_doc-func-members}
+\Hypertarget{class_event_control_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_event_control_a3b750b586a6c04f94a46f6a657c69e12}\index{EventControl@{EventControl}!attach@{attach}}
+\index{attach@{attach}!EventControl@{EventControl}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily \label{class_event_control_a3b750b586a6c04f94a46f6a657c69e12} 
+void Event\+Control::\+attach (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}}]{observer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Registers an observer to receive notifications from \doxylink{class_event_control}{Event\+Control}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & The observer to register\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Duplicate registrations and null pointers are ignored 
+\end{DoxyNote}
+
+
+Implements \doxymbox{\hyperlink{class_subject_ab6d78de2ea944a23dc5a66a4fe580db2}{Subject}}.
+
+\Hypertarget{class_event_control_a082ba83cbdc80ff220232967103db5b7}\index{EventControl@{EventControl}!detach@{detach}}
+\index{detach@{detach}!EventControl@{EventControl}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily \label{class_event_control_a082ba83cbdc80ff220232967103db5b7} 
+void Event\+Control::\+detach (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}}]{observer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes a registered observer from \doxylink{class_event_control}{Event\+Control}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & The observer to deregister\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The observer is not deleted, but removed from the list 
+\end{DoxyNote}
+
+
+Implements \doxymbox{\hyperlink{class_subject_a7e81018a886792735ab3d067feeb075d}{Subject}}.
+
+\Hypertarget{class_event_control_a255bf3ab4f055e8b3b2a0df434148be9}\index{EventControl@{EventControl}!getRaceRoot@{getRaceRoot}}
+\index{getRaceRoot@{getRaceRoot}!EventControl@{EventControl}}
+\doxysubsubsection{\texorpdfstring{getRaceRoot()}{getRaceRoot()}}
+{\footnotesize\ttfamily \label{class_event_control_a255bf3ab4f055e8b3b2a0df434148be9} 
+\doxymbox{\hyperlink{class_event_component}{Event\+Component}} \texorpdfstring{$\ast$}{*} Event\+Control::\+get\+Race\+Root (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get current race root. 
+
+\begin{DoxyReturn}{Returns}
+The root \doxylink{class_event_component}{Event\+Component} or nullptr if none is set 
+\end{DoxyReturn}
+\Hypertarget{class_event_control_ac21db8f4791c306a2b214309b4e400e6}\index{EventControl@{EventControl}!issueNotice@{issueNotice}}
+\index{issueNotice@{issueNotice}!EventControl@{EventControl}}
+\doxysubsubsection{\texorpdfstring{issueNotice()}{issueNotice()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_event_control_ac21db8f4791c306a2b214309b4e400e6} 
+void Event\+Control::\+issue\+Notice (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_notice}{Notice}} \&}]{notice}{}\end{DoxyParamCaption})}
+
+
+
+Issues an existing notice -\/ overloading. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em notice} & The notice to send \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_event_control_ad77465f9d79769ed69bb0eba9511d81d}\index{EventControl@{EventControl}!issueNotice@{issueNotice}}
+\index{issueNotice@{issueNotice}!EventControl@{EventControl}}
+\doxysubsubsection{\texorpdfstring{issueNotice()}{issueNotice()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_event_control_ad77465f9d79769ed69bb0eba9511d81d} 
+void Event\+Control::\+issue\+Notice (\begin{DoxyParamCaption}\item[{Notice\+Type}]{type}{, }\item[{const std::\+string \&}]{message}{, }\item[{int}]{severity}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Creates and issues a notice of the given type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of notice \\
+\hline
+{\em message} & Description of the notice \\
+\hline
+{\em severity} & Severity level \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_event_control_ad58e12a841d8f06cc17b8b0d8da1000b}\index{EventControl@{EventControl}!notify@{notify}}
+\index{notify@{notify}!EventControl@{EventControl}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily \label{class_event_control_ad58e12a841d8f06cc17b8b0d8da1000b} 
+void Event\+Control::\+notify (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_notice}{Notice}} \&}]{notice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Notifies all registered observers with given notice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em notice} & The notice to send to all observers \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_subject_a3dee8c149e7f10c37213050cdc86d52b}{Subject}}.
+
+\Hypertarget{class_event_control_a0aeebab0bad7fe7269c145910312f5bc}\index{EventControl@{EventControl}!setRaceRoot@{setRaceRoot}}
+\index{setRaceRoot@{setRaceRoot}!EventControl@{EventControl}}
+\doxysubsubsection{\texorpdfstring{setRaceRoot()}{setRaceRoot()}}
+{\footnotesize\ttfamily \label{class_event_control_a0aeebab0bad7fe7269c145910312f5bc} 
+void Event\+Control::\+set\+Race\+Root (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_event_component}{Event\+Component}} \texorpdfstring{$\ast$}{*}}]{root}{}\end{DoxyParamCaption})}
+
+
+
+Sets the root of the race tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The root \doxylink{class_event_component}{Event\+Component} (\doxylink{class_race_event}{Race\+Event}) to manage\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If a new root is set, the old one is deleted 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Event\+Control.\+h\item 
+\doxymbox{\hyperlink{_event_control_8cpp}{Event\+Control.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,182 @@
+\doxysection{Event\+Component Class Reference}
+\hypertarget{class_event_component}{}\label{class_event_component}\index{EventComponent@{EventComponent}}
+Inheritance diagram for Event\+Component:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.246377cm]{class_event_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{Event\+Component}} (const std::\+string \&name, int capacity=0)
+\begin{DoxyCompactList}\small\item\em GoF Component role for the Composite pattern. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_event_component_ada5f41377769e0cbdaa7546477b3970c}{open}} ()=0
+\item 
+virtual void \doxymbox{\hyperlink{class_event_component_a8e13a68d681c1b6affcf13435a09adab}{close}} ()=0
+\item 
+virtual void \doxymbox{\hyperlink{class_event_component_a625b1459850d5a94793c54404a280231}{report\+Status}} () const =0
+\item 
+virtual int \doxymbox{\hyperlink{class_event_component_a6128b4c0f20d353a29d45348f48a5f2e}{get\+Capacity}} () const =0
+\item 
+virtual int \doxymbox{\hyperlink{class_event_component_ab7a5e2ceec26215fbd0ce27f3df4654c}{get\+Current\+Load}} () const =0
+\item 
+virtual void \doxymbox{\hyperlink{class_event_component_a1d950c5a511103e16d584eb61efe57d4}{update}} (const \doxymbox{\hyperlink{class_notice}{Notice}} \&notice)=0
+\begin{DoxyCompactList}\small\item\em Called by a \doxylink{class_subject}{Subject} to deliver a \doxylink{class_notice}{Notice}. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_event_component_a514ee7d351f3aeee4b611665fa91cbaf}{get\+Name}} () const
+\item 
+bool \doxymbox{\hyperlink{class_event_component_a41d0483abfcb7cbfd8cf53a77e141c2f}{is\+Open}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_observer}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor so derived Observers destroy correctly through a base-\/class pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_event_component_a82348aef118d5b35e0962a4f632cbd19}\label{class_event_component_a82348aef118d5b35e0962a4f632cbd19} 
+std::\+string {\bfseries name}
+\item 
+\Hypertarget{class_event_component_af962944287283b3eb9a5f82a5af3d186}\label{class_event_component_af962944287283b3eb9a5f82a5af3d186} 
+bool {\bfseries open\+State}
+\item 
+\Hypertarget{class_event_component_ae4b041c98bc58d53783231ae2e8f626b}\label{class_event_component_ae4b041c98bc58d53783231ae2e8f626b} 
+int {\bfseries capacity}
+\item 
+\Hypertarget{class_event_component_a77065d15c38b66cc7ae72159fe3755b7}\label{class_event_component_a77065d15c38b66cc7ae72159fe3755b7} 
+int {\bfseries current\+Load}
+\end{DoxyCompactItemize}
+
+
+\label{class_event_component_doc-constructors}
+\Hypertarget{class_event_component_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_event_component_af440556dd656e7dbc7f619efcff8f076}\index{EventComponent@{EventComponent}!EventComponent@{EventComponent}}
+\index{EventComponent@{EventComponent}!EventComponent@{EventComponent}}
+\doxysubsubsection{\texorpdfstring{EventComponent()}{EventComponent()}}
+{\footnotesize\ttfamily \label{class_event_component_af440556dd656e7dbc7f619efcff8f076} 
+Event\+Component::\+\+Event\+Component (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{, }\item[{int}]{capacity}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+GoF Component role for the Composite pattern. 
+
+\doxylink{class_event_component}{Event\+Component} is the common interface for every part of the event tree, whether it\textquotesingle{}s a single operational unit or a group containing further components. Code that just wants to open/\+close/\+report on/\+query part of the event can hold an Event\+Component\texorpdfstring{$\ast$}{*} without knowing which concrete kind it is.
+
+\doxylink{class_event_component}{Event\+Component} also implements \doxylink{class_observer}{Observer}, so every component in the tree is capable of receiving notices, this is a separate collaboration from Composite, and is why some subclasses (\doxylink{class_event_group}{Event\+Group}) additionally implement \doxylink{class_subject}{Subject}: a component can both receive notices from above and forward them to interested parties below.
+
+\begin{DoxyAuthor}{Author}
+Anke de Frey
+\end{DoxyAuthor}
+Constructs a component with a name and an optional capacity. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Human-\/readable identifier shown in status output. \\
+\hline
+{\em capacity} & Maximum capacity of this single component. Composite subclasses (\doxylink{class_event_group}{Event\+Group}) ignore this constructor argument and compute their capacity recursively from their children instead. \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_event_component_doc-func-members}
+\Hypertarget{class_event_component_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_event_component_a8e13a68d681c1b6affcf13435a09adab}\index{EventComponent@{EventComponent}!close@{close}}
+\index{close@{close}!EventComponent@{EventComponent}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily \label{class_event_component_a8e13a68d681c1b6affcf13435a09adab} 
+virtual void Event\+Component::\+close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{class_aid_station_a7bad453539aa1a6a927abf6b280ad5e9}{Aid\+Station}}, \doxymbox{\hyperlink{class_event_group_a600460d78e6fc8d0ec13b1767590dcc9}{Event\+Group}}, \doxymbox{\hyperlink{class_marshal_team_aeb62c6962c97e077eaf434ebcd74a1ad}{Marshal\+Team}}, \doxymbox{\hyperlink{class_medical_tent_a44fdf33551266a5510df6f0e239e8ddc}{Medical\+Tent}}, \doxymbox{\hyperlink{class_start_gate_a00c907c3d2c9be044f326daf6968e70f}{Start\+Gate}}, and \doxymbox{\hyperlink{class_timing_point_ad98867ed2553bf58d273cc99f86b6078}{Timing\+Point}}.
+
+\Hypertarget{class_event_component_a6128b4c0f20d353a29d45348f48a5f2e}\index{EventComponent@{EventComponent}!getCapacity@{getCapacity}}
+\index{getCapacity@{getCapacity}!EventComponent@{EventComponent}}
+\doxysubsubsection{\texorpdfstring{getCapacity()}{getCapacity()}}
+{\footnotesize\ttfamily \label{class_event_component_a6128b4c0f20d353a29d45348f48a5f2e} 
+virtual int Event\+Component::\+get\+Capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{class_aid_station_a9a68500d9f20975f3a7805a58d58c4d7}{Aid\+Station}}, \doxymbox{\hyperlink{class_event_group_affe035069afc221547fe9e848017ee3c}{Event\+Group}}, \doxymbox{\hyperlink{class_marshal_team_a2bd5d36681b17a849d62c97e1c9b85f2}{Marshal\+Team}}, \doxymbox{\hyperlink{class_medical_tent_a7021ac3190511c23dc9d80c5184bd657}{Medical\+Tent}}, \doxymbox{\hyperlink{class_start_gate_af3a84f4ace454a09dcdf53e3f6c3c088}{Start\+Gate}}, and \doxymbox{\hyperlink{class_timing_point_ae85c27a5e5f614dfa7dd7680eed80f35}{Timing\+Point}}.
+
+\Hypertarget{class_event_component_ab7a5e2ceec26215fbd0ce27f3df4654c}\index{EventComponent@{EventComponent}!getCurrentLoad@{getCurrentLoad}}
+\index{getCurrentLoad@{getCurrentLoad}!EventComponent@{EventComponent}}
+\doxysubsubsection{\texorpdfstring{getCurrentLoad()}{getCurrentLoad()}}
+{\footnotesize\ttfamily \label{class_event_component_ab7a5e2ceec26215fbd0ce27f3df4654c} 
+virtual int Event\+Component::\+get\+Current\+Load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{class_aid_station_a7be61d208991ee9e64c414fd0f2b4a1f}{Aid\+Station}}, \doxymbox{\hyperlink{class_event_group_afc5dd2d44d7813b58355dc55ba6eabd5}{Event\+Group}}, \doxymbox{\hyperlink{class_marshal_team_ad6a2d67f55a62ea94eebf33d5f6a2db0}{Marshal\+Team}}, \doxymbox{\hyperlink{class_medical_tent_a095ea97965a2824e84ed16ddbd068639}{Medical\+Tent}}, \doxymbox{\hyperlink{class_start_gate_a7889416f924922ae96c00b7c84fc8a9d}{Start\+Gate}}, and \doxymbox{\hyperlink{class_timing_point_a5addb71077b9f2c5ac0b705db52cd1d1}{Timing\+Point}}.
+
+\Hypertarget{class_event_component_a514ee7d351f3aeee4b611665fa91cbaf}\index{EventComponent@{EventComponent}!getName@{getName}}
+\index{getName@{getName}!EventComponent@{EventComponent}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_event_component_a514ee7d351f3aeee4b611665fa91cbaf} 
+std::\+string Event\+Component::\+get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+This component\textquotesingle{}s name. 
+\end{DoxyReturn}
+\Hypertarget{class_event_component_a41d0483abfcb7cbfd8cf53a77e141c2f}\index{EventComponent@{EventComponent}!isOpen@{isOpen}}
+\index{isOpen@{isOpen}!EventComponent@{EventComponent}}
+\doxysubsubsection{\texorpdfstring{isOpen()}{isOpen()}}
+{\footnotesize\ttfamily \label{class_event_component_a41d0483abfcb7cbfd8cf53a77e141c2f} 
+bool Event\+Component::\+is\+Open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+True if this component is currently open. 
+\end{DoxyReturn}
+\Hypertarget{class_event_component_ada5f41377769e0cbdaa7546477b3970c}\index{EventComponent@{EventComponent}!open@{open}}
+\index{open@{open}!EventComponent@{EventComponent}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily \label{class_event_component_ada5f41377769e0cbdaa7546477b3970c} 
+virtual void Event\+Component::\+open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{class_aid_station_a589129760790ebc8ecc4ef4e1bb6446f}{Aid\+Station}}, \doxymbox{\hyperlink{class_event_group_aa12055a0456c9e6faf6de3a12a70b0e1}{Event\+Group}}, \doxymbox{\hyperlink{class_marshal_team_a94fdc6eea34ba5ea9f2e4bc6b09d5645}{Marshal\+Team}}, \doxymbox{\hyperlink{class_medical_tent_a6b1496a802d13dc5d24e3656720daac6}{Medical\+Tent}}, \doxymbox{\hyperlink{class_start_gate_a36000d7f374d0d63062612f1d4c624a2}{Start\+Gate}}, and \doxymbox{\hyperlink{class_timing_point_aa54725fb7c24aeda594b7d84e91d5124}{Timing\+Point}}.
+
+\Hypertarget{class_event_component_a625b1459850d5a94793c54404a280231}\index{EventComponent@{EventComponent}!reportStatus@{reportStatus}}
+\index{reportStatus@{reportStatus}!EventComponent@{EventComponent}}
+\doxysubsubsection{\texorpdfstring{reportStatus()}{reportStatus()}}
+{\footnotesize\ttfamily \label{class_event_component_a625b1459850d5a94793c54404a280231} 
+virtual void Event\+Component::\+report\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{class_aid_station_a16782a07188bfc87fb111b5134f53cad}{Aid\+Station}}, \doxymbox{\hyperlink{class_event_group_abc6919ac70ecf081cdec8c3ffaadc89e}{Event\+Group}}, \doxymbox{\hyperlink{class_marshal_team_ad99eb3953aded044ebd21307c8cfe0d2}{Marshal\+Team}}, \doxymbox{\hyperlink{class_medical_tent_a523b0ba3aa2efd5e7808963eecc7fd06}{Medical\+Tent}}, \doxymbox{\hyperlink{class_start_gate_acc3628781d7c2b60a9b03be8b10d6dd5}{Start\+Gate}}, and \doxymbox{\hyperlink{class_timing_point_aa01420061ec44bcbf8bd7399e2880a8d}{Timing\+Point}}.
+
+\Hypertarget{class_event_component_a1d950c5a511103e16d584eb61efe57d4}\index{EventComponent@{EventComponent}!update@{update}}
+\index{update@{update}!EventComponent@{EventComponent}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_event_component_a1d950c5a511103e16d584eb61efe57d4} 
+virtual void Event\+Component::\+update (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_notice}{Notice}} \&}]{notice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called by a \doxylink{class_subject}{Subject} to deliver a \doxylink{class_notice}{Notice}. 
+
+This design uses the "{}push"{} style of \doxylink{class_observer}{Observer}: the \doxylink{class_subject}{Subject} passes the full \doxylink{class_notice}{Notice} (type, message and severity) directly into this call, so the \doxylink{class_observer}{Observer} never needs to query the \doxylink{class_subject}{Subject} for state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em notice} & The notice describing what happened. The reference is only valid for the duration of this call. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_observer_a1facbbd0e34f6034d183ae9bcabbf1b0}{Observer}}.
+
+
+
+Implemented in \doxymbox{\hyperlink{class_aid_station_a94d3ca57e893c4953a5ec3754d0be868}{Aid\+Station}}, \doxymbox{\hyperlink{class_event_group_a49dd237deffcde74961175a84a7c0256}{Event\+Group}}, \doxymbox{\hyperlink{class_marshal_team_ae5fcd510e1d3389b82dda50ad9cb0bcc}{Marshal\+Team}}, \doxymbox{\hyperlink{class_medical_tent_a98c11ca1b1a05dfb41745070df9ceb52}{Medical\+Tent}}, \doxymbox{\hyperlink{class_start_gate_a58ae6437c8ee704f32660d3c47f37c0c}{Start\+Gate}}, and \doxymbox{\hyperlink{class_timing_point_a4fcc05887c89cbd0faef69c21cc641f6}{Timing\+Point}}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Event\+Component.\+h\item 
+Event\+Component.\+cpp\end{DoxyCompactItemize}

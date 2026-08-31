@@ -1,0 +1,23 @@
+\doxysection{Event\+Group.\+cpp File Reference}
+\hypertarget{_event_group_8cpp}{}\label{_event_group_8cpp}\index{EventGroup.cpp@{EventGroup.cpp}}
+
+
+GoF Composite role, and also a concrete \doxylink{class_subject}{Subject}. Implementation of the \doxylink{class_event_group}{Event\+Group} that manages \doxylink{class_event_component}{Event\+Component} children and deals with ownership.  
+
+
+{\ttfamily \+\#include "{}Event\+Group.\+h"{}}\newline
+{\ttfamily \+\#include "{}Notice.\+h"{}}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+
+
+\doxysubsection{Detailed Description}
+GoF Composite role, and also a concrete \doxylink{class_subject}{Subject}. Implementation of the \doxylink{class_event_group}{Event\+Group} that manages \doxylink{class_event_component}{Event\+Component} children and deals with ownership. 
+
+\doxylink{class_event_group}{Event\+Group} represents any area that contains other components, a zone, course sector, or the whole race. It owns its children (they are deleted by \texorpdfstring{$\sim$}{\string~}\+Event\+Group) and delegates the common \doxylink{class_event_component}{Event\+Component} operations to them recursively.
+
+\doxylink{class_event_group}{Event\+Group} is deliberately also a \doxylink{class_subject}{Subject}: an area can receive a notice from above (via its own update()) and forward it to whichever of its children are registered as observers. Ownership (children) and observation (observers) are two separate lists managed by two separate calls, add\+Child() does not automatically attach() a child as an observer. This keeps "{}who owns this"{} independent of "{}who hears about this"{}: a child can be owned without observing its parent, and transfer\+Child() can move ownership without touching observer registrations at all, by design.
+
+\begin{DoxyAuthor}{Author}
+Jezelle Govender 
+\end{DoxyAuthor}

@@ -1,0 +1,191 @@
+\doxysection{Start\+Gate Class Reference}
+\hypertarget{class_start_gate}{}\label{class_start_gate}\index{StartGate@{StartGate}}
+Inheritance diagram for Start\+Gate:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_start_gate}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_start_gate_af1623def11db0fc6147eb045134b308b}{Start\+Gate}} (const std::\+string \&name, int batch\+Size)
+\begin{DoxyCompactList}\small\item\em Constructs a start gate. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_start_gate_a36000d7f374d0d63062612f1d4c624a2}{open}} () override
+\begin{DoxyCompactList}\small\item\em Opens the start gate, and lets runners start the race. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_start_gate_a00c907c3d2c9be044f326daf6968e70f}{close}} () override
+\begin{DoxyCompactList}\small\item\em Closes the start gate. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_start_gate_acc3628781d7c2b60a9b03be8b10d6dd5}{report\+Status}} () const override
+\begin{DoxyCompactList}\small\item\em Reports the current status of the start gate. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_start_gate_af3a84f4ace454a09dcdf53e3f6c3c088}{get\+Capacity}} () const override
+\item 
+int \doxymbox{\hyperlink{class_start_gate_a7889416f924922ae96c00b7c84fc8a9d}{get\+Current\+Load}} () const override
+\item 
+void \doxymbox{\hyperlink{class_start_gate_a58ae6437c8ee704f32660d3c47f37c0c}{update}} (const \doxymbox{\hyperlink{class_notice}{Notice}} \&notice) override
+\begin{DoxyCompactList}\small\item\em Handles the event notifications, the startgate pauses the start during weather alerts and emergencies. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_start_gate_a4121dfe68bc44ff62834dd009902a880}{admit\+Runners}} (int count)
+\begin{DoxyCompactList}\small\item\em Admits a group of runners through the start gate, with a condition-\/based decision. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{Event\+Component}} (const std::\+string \&name, int capacity=0)
+\begin{DoxyCompactList}\small\item\em GoF Component role for the Composite pattern. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_event_component_a514ee7d351f3aeee4b611665fa91cbaf}{get\+Name}} () const
+\item 
+bool \doxymbox{\hyperlink{class_event_component_a41d0483abfcb7cbfd8cf53a77e141c2f}{is\+Open}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_observer}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor so derived Observers destroy correctly through a base-\/class pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string {\bfseries name}
+\item 
+bool {\bfseries open\+State}
+\item 
+int {\bfseries capacity}
+\item 
+int {\bfseries current\+Load}
+\end{DoxyCompactItemize}
+
+
+\label{class_start_gate_doc-constructors}
+\Hypertarget{class_start_gate_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_start_gate_af1623def11db0fc6147eb045134b308b}\index{StartGate@{StartGate}!StartGate@{StartGate}}
+\index{StartGate@{StartGate}!StartGate@{StartGate}}
+\doxysubsubsection{\texorpdfstring{StartGate()}{StartGate()}}
+{\footnotesize\ttfamily \label{class_start_gate_af1623def11db0fc6147eb045134b308b} 
+Start\+Gate::\+\+Start\+Gate (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{, }\item[{int}]{batch\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a start gate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Human-\/readable identifier. \\
+\hline
+{\em batch\+Size} & Maximum number of runners that may start through this gate (also used as capacity). \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_start_gate_doc-func-members}
+\Hypertarget{class_start_gate_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_start_gate_a4121dfe68bc44ff62834dd009902a880}\index{StartGate@{StartGate}!admitRunners@{admitRunners}}
+\index{admitRunners@{admitRunners}!StartGate@{StartGate}}
+\doxysubsubsection{\texorpdfstring{admitRunners()}{admitRunners()}}
+{\footnotesize\ttfamily \label{class_start_gate_a4121dfe68bc44ff62834dd009902a880} 
+bool Start\+Gate::\+admit\+Runners (\begin{DoxyParamCaption}\item[{int}]{count}{}\end{DoxyParamCaption})}
+
+
+
+Admits a group of runners through the start gate, with a condition-\/based decision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the number of runners to admit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if runners are admitted, false if capacity would be exceeded, or if the gate is closed 
+\end{DoxyReturn}
+\Hypertarget{class_start_gate_a00c907c3d2c9be044f326daf6968e70f}\index{StartGate@{StartGate}!close@{close}}
+\index{close@{close}!StartGate@{StartGate}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily \label{class_start_gate_a00c907c3d2c9be044f326daf6968e70f} 
+void Start\+Gate::\+close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Closes the start gate. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_start_gate_af3a84f4ace454a09dcdf53e3f6c3c088}\index{StartGate@{StartGate}!getCapacity@{getCapacity}}
+\index{getCapacity@{getCapacity}!StartGate@{StartGate}}
+\doxysubsubsection{\texorpdfstring{getCapacity()}{getCapacity()}}
+{\footnotesize\ttfamily \label{class_start_gate_af3a84f4ace454a09dcdf53e3f6c3c088} 
+int Start\+Gate::\+get\+Capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+The maximum batch size. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_start_gate_a7889416f924922ae96c00b7c84fc8a9d}\index{StartGate@{StartGate}!getCurrentLoad@{getCurrentLoad}}
+\index{getCurrentLoad@{getCurrentLoad}!StartGate@{StartGate}}
+\doxysubsubsection{\texorpdfstring{getCurrentLoad()}{getCurrentLoad()}}
+{\footnotesize\ttfamily \label{class_start_gate_a7889416f924922ae96c00b7c84fc8a9d} 
+int Start\+Gate::\+get\+Current\+Load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+The number of runners already started through this gate. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_start_gate_a36000d7f374d0d63062612f1d4c624a2}\index{StartGate@{StartGate}!open@{open}}
+\index{open@{open}!StartGate@{StartGate}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily \label{class_start_gate_a36000d7f374d0d63062612f1d4c624a2} 
+void Start\+Gate::\+open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Opens the start gate, and lets runners start the race. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_start_gate_acc3628781d7c2b60a9b03be8b10d6dd5}\index{StartGate@{StartGate}!reportStatus@{reportStatus}}
+\index{reportStatus@{reportStatus}!StartGate@{StartGate}}
+\doxysubsubsection{\texorpdfstring{reportStatus()}{reportStatus()}}
+{\footnotesize\ttfamily \label{class_start_gate_acc3628781d7c2b60a9b03be8b10d6dd5} 
+void Start\+Gate::\+report\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reports the current status of the start gate. 
+
+
+
+Implements \doxymbox{\hyperlink{class_event_component}{Event\+Component}}.
+
+\Hypertarget{class_start_gate_a58ae6437c8ee704f32660d3c47f37c0c}\index{StartGate@{StartGate}!update@{update}}
+\index{update@{update}!StartGate@{StartGate}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_start_gate_a58ae6437c8ee704f32660d3c47f37c0c} 
+void Start\+Gate::\+update (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_notice}{Notice}} \&}]{notice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles the event notifications, the startgate pauses the start during weather alerts and emergencies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em notice} & the notice being processed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{class_event_component_a1d950c5a511103e16d584eb61efe57d4}{Event\+Component}}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Start\+Gate.\+h\item 
+\doxymbox{\hyperlink{_start_gate_8cpp}{Start\+Gate.\+cpp}}\end{DoxyCompactItemize}

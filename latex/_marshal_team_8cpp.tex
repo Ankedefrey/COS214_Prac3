@@ -1,0 +1,20 @@
+\doxysection{Marshal\+Team.\+cpp File Reference}
+\hypertarget{_marshal_team_8cpp}{}\label{_marshal_team_8cpp}\index{MarshalTeam.cpp@{MarshalTeam.cpp}}
+
+
+Concrete Leaf: a team of marshals responsible for runner safety. This is an implementation of \doxylink{class_marshal_team}{Marshal\+Team} that provides safety during the race.  
+
+
+{\ttfamily \+\#include "{}Marshal\+Team.\+h"{}}\newline
+{\ttfamily \+\#include "{}Notice.\+h"{}}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+
+
+\doxysubsection{Detailed Description}
+Concrete Leaf: a team of marshals responsible for runner safety. This is an implementation of \doxylink{class_marshal_team}{Marshal\+Team} that provides safety during the race. 
+
+GoF role: Concrete\+Component (Composite) and Concrete\+Observer (\doxylink{class_observer}{Observer}), with an extra ability of its own, it can originate a HAZARD\+\_\+\+ALERT \doxylink{class_notice}{Notice} via create\+Hazard\+Notice() rather than only ever reacting to notices issued by \doxylink{class_event_control}{Event\+Control}.
+
+\begin{DoxyAuthor}{Author}
+Jezelle Govender 
+\end{DoxyAuthor}

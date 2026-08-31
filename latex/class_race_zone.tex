@@ -1,0 +1,99 @@
+\doxysection{Race\+Zone Class Reference}
+\hypertarget{class_race_zone}{}\label{class_race_zone}\index{RaceZone@{RaceZone}}
+Inheritance diagram for Race\+Zone:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_race_zone}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_race_zone_a238323c8a1b33d4d07305e1715ff942c}{Race\+Zone}} (const std::\+string \&name)
+\begin{DoxyCompactList}\small\item\em Concrete Composite: a large area of the event that groups one or more course sectors and/\+or directly-\/owned units such as a shared medical tent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_event_group}{Event\+Group}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Event\+Group} (const std::\+string \&name)
+\begin{DoxyCompactList}\small\item\em Constructs an empty group with the given name. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_group_a029c8ac7c257c547e8b47f2d01ceaaba}{add\+Child}} (\doxymbox{\hyperlink{class_event_component}{Event\+Component}} \texorpdfstring{$\ast$}{*}child)
+\begin{DoxyCompactList}\small\item\em Adds a child component to this group, taking ownership. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_event_component}{Event\+Component}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_event_group_a086598858bc4d246b3f360af8d684796}{release\+Child}} (\doxymbox{\hyperlink{class_event_component}{Event\+Component}} \texorpdfstring{$\ast$}{*}child)
+\begin{DoxyCompactList}\small\item\em Releases ownership of a child component without deleting it. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_event_group_a0205bb64ec21ae96bdf4e325d79cdedb}{transfer\+Child}} (\doxymbox{\hyperlink{class_event_component}{Event\+Component}} \texorpdfstring{$\ast$}{*}child, \doxymbox{\hyperlink{class_event_group}{Event\+Group}} \texorpdfstring{$\ast$}{*}new\+Parent)
+\begin{DoxyCompactList}\small\item\em Transfers a child to a new parent group. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_group_aa12055a0456c9e6faf6de3a12a70b0e1}{open}} () override
+\begin{DoxyCompactList}\small\item\em opens the group and all children, and delegates to all children \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_group_a600460d78e6fc8d0ec13b1767590dcc9}{close}} () override
+\begin{DoxyCompactList}\small\item\em Closes this group and recursively closes every child. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_group_abc6919ac70ecf081cdec8c3ffaadc89e}{report\+Status}} () const override
+\begin{DoxyCompactList}\small\item\em Reports the status of the group and all children. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_event_group_affe035069afc221547fe9e848017ee3c}{get\+Capacity}} () const override
+\item 
+int \doxymbox{\hyperlink{class_event_group_afc5dd2d44d7813b58355dc55ba6eabd5}{get\+Current\+Load}} () const override
+\item 
+void \doxymbox{\hyperlink{class_event_group_a49dd237deffcde74961175a84a7c0256}{update}} (const \doxymbox{\hyperlink{class_notice}{Notice}} \&notice) override
+\begin{DoxyCompactList}\small\item\em Updates the group state and forwards notices to children First updates own state, then notifies all observers. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_group_a28a9904c7fdbf09e5f27e49f3e5aebe0}{attach}} (\doxymbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}observer) override
+\begin{DoxyCompactList}\small\item\em Registers an observer to receive notifications. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_group_ac51197814ef0c7a3c16c6d93c9f9ebdc}{detach}} (\doxymbox{\hyperlink{class_observer}{Observer}} \texorpdfstring{$\ast$}{*}observer) override
+\begin{DoxyCompactList}\small\item\em Deregisters an observer from receiving any notifications. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_event_group_a8ed1f63d6549def10a3050457be8bccc}{notify}} (const \doxymbox{\hyperlink{class_notice}{Notice}} \&notice) override
+\begin{DoxyCompactList}\small\item\em Notifies all registered observers with the given notice. \end{DoxyCompactList}\item 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Event\+Group} () override
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_event_group}{Event\+Group} and recursively deletes all owned children. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_event_component_af440556dd656e7dbc7f619efcff8f076}{Event\+Component}} (const std::\+string \&name, int capacity=0)
+\begin{DoxyCompactList}\small\item\em GoF Component role for the Composite pattern. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_event_component_a514ee7d351f3aeee4b611665fa91cbaf}{get\+Name}} () const
+\item 
+bool \doxymbox{\hyperlink{class_event_component_a41d0483abfcb7cbfd8cf53a77e141c2f}{is\+Open}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_observer}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor so derived Observers destroy correctly through a base-\/class pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_subject}{Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor so derived Subjects destroy correctly through a base-\/class pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{class_event_component}{Event\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string {\bfseries name}
+\item 
+bool {\bfseries open\+State}
+\item 
+int {\bfseries capacity}
+\item 
+int {\bfseries current\+Load}
+\end{DoxyCompactItemize}
+
+
+\label{class_race_zone_doc-constructors}
+\Hypertarget{class_race_zone_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_race_zone_a238323c8a1b33d4d07305e1715ff942c}\index{RaceZone@{RaceZone}!RaceZone@{RaceZone}}
+\index{RaceZone@{RaceZone}!RaceZone@{RaceZone}}
+\doxysubsubsection{\texorpdfstring{RaceZone()}{RaceZone()}}
+{\footnotesize\ttfamily \label{class_race_zone_a238323c8a1b33d4d07305e1715ff942c} 
+Race\+Zone::\+\+Race\+Zone (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Concrete Composite: a large area of the event that groups one or more course sectors and/\+or directly-\/owned units such as a shared medical tent. 
+
+\begin{DoxyAuthor}{Author}
+Anke de Frey
+\end{DoxyAuthor}
+Constructs a zone with the given name. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Race\+Zone.\+h\item 
+Race\+Zone.\+cpp\end{DoxyCompactItemize}
