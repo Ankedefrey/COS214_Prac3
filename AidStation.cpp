@@ -37,13 +37,13 @@ void AidStation::close() {
 }
 
 void AidStation::reportStatus() const {
-    std::cout << "Aid Station " << name << " Status: " << std::endl;
-    std::cout << "State: " << (openState ? "Open" : "Closed") << std::endl;
-    std::cout << "Serving: " << (isServing ? "Yes" : "No") << std::endl;
-    std::cout << "Capacity: " << capacity << std::endl;
-    std::cout << "The current load: " << currentLoad << std::endl;
-    std::cout << "The stock level: " << stockLevel << std::endl;
-    std::cout << "Low stock threshold: " << lowStockThreshold << std::endl;
+    std::cout << "Aid Station: " << name << " Status: " << std::endl;
+    std::cout << "  State: " << (openState ? "Open" : "Closed") << std::endl;
+    std::cout << "  Serving: " << (isServing ? "Yes" : "No") << std::endl;
+    std::cout << "  Capacity: " << capacity << std::endl;
+    std::cout << "  The current load: " << currentLoad << std::endl;
+    std::cout << "  The stock level: " << stockLevel << std::endl;
+    std::cout << "  Low stock threshold: " << lowStockThreshold << std::endl;
 }
 
 
