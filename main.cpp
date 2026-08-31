@@ -149,4 +149,21 @@ int main(){
     std::cout<<"Route changed issued: gravelMarshal now reacts as part of Forest Sector's cascade"<<std::endl;
     control.issueNotice(ROUTE_CHANGE, "Course rerouted around the rockslide", 2);
 
+    //COMPOSITE TRAVERSAL
+    std::cout<<"CAPACITY QUERIES"<<std::endl;
+    std::cout<<"Total race capacity: "<<control.getRaceRoot()->getCapacity()<<std::endl;
+    std::cout<<"Total race current load: "<<control.getRaceRoot()->getCurrentLoad()<<std::endl;
+    std::cout<<"Forest sector capacity (after transfer): "<<forestSector->getCapacity()<<std::endl;
+    std::cout<<"Gravel sector capacity (after transfer): "<<gravelSector->getCapacity()<<std::endl;
+
+    std::cout<<"FULL STATUS REPORT"<<std::endl;
+    control.getRaceRoot()->reportStatus();
+
+    //CLEAN SHUTDOWN
+        // EventControl owns the root
+        //its destructor recursively deletes the entire owned subtree exactly once
+        //(automatically when control goes out of scope)
+    std::cout<<"==Event Ending=="<<std::endl;
+    std::cout<<"control is going out of scope \n ~EventControl will delete raceRoot \n which recursively deletes every owned child exactly once \n"<<std::endl;
+
 }
