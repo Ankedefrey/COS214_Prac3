@@ -2,7 +2,7 @@
 
 ## Team Members
 - Jezelle Govender u25176383
-- Anke de Frey 
+- Anke de Frey u24611400
 - Kayla Falconer
 
 ## Composite Pattern (Jezelle):
