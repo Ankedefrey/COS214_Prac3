@@ -67,7 +67,7 @@ int AidStation::getCurrentLoad() const {
  * -Resume: Resumes the normal service
  * -Supply_Alert: Triggers to restock 
  * -Capacity_Alert: Checks if aid station has reached the maximum amount of people.
- * -Close: Stps service and closes the aid station
+ * -Close: Stops service and closes the aid station
  * 
  * @param notice The notice that's being processed 
  */
@@ -75,7 +75,7 @@ void AidStation::update(const Notice& notice) {
     switch (notice.getType()) {
     case WEATHER_ALERT:
         std::cout << "Aid Station: " << name << " is securing stock while still maintaining services. " << std::endl;
-        restock(10); 
+        restock(10);
         isServing = true;
         break;
 
@@ -108,6 +108,23 @@ void AidStation::update(const Notice& notice) {
     case CLOSE:
         std::cout << " Aid Station: " << name << " is now closed." << std::endl;
         close();
+        break;
+    
+    case EVACUATE:
+        std::cout<<"Aid Station: "<<name<<" halting service and securing supplies for evacuation."<<std::endl;
+        isServing = false;
+        break;
+
+    case ROUTE_CHANGE:
+        std::cout<<"Aid Station: "<<name<<" adjusting position to support the new route."<<std::endl;
+        break;
+
+    case HAZARD_ALERT:
+        std::cout<<"Aid Station: "<<name<<" pausing service until the hazard is cleared."<<std::endl;
+        isServing = false;
+        if(notice.getSeverity() >= 2){
+            std::cout<< "  High severity hazard - securing all supplies."<<std::endl;
+        }
         break;
 
     default:
