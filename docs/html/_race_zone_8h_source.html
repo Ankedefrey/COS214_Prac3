@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Main Page</title>
+<title>EventFlow: RaceZone.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">EventFlow
    </div>
+   <div id="projectbrief">COS 214 Practical 3 - Live Event Coordination Engine</div>
   </td>
  </tr>
  </tbody>
@@ -85,7 +86,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html','',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_race_zone_8h_source.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -108,16 +109,35 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">My Project Documentation</div></div>
+  <div class="headertitle"><div class="title">RaceZone.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="doxygen_crawl.html"></a>
-</div><!-- contents -->
+<a href="_race_zone_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RACEZONE_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define RACEZONE_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_event_group_8h.html">EventGroup.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_race_zone.html">    8</a></span><span class="keyword">class </span><a class="code hl_function" href="class_race_zone.html#a238323c8a1b33d4d07305e1715ff942c">RaceZone</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_event_group.html#a520ed7b96db42bd580a447dbb6d1470e">EventGroup</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_race_zone.html#a238323c8a1b33d4d07305e1715ff942c">RaceZone</a>(<span class="keyword">const</span> std::string&amp; <a class="code hl_variable" href="class_event_component.html#a82348aef118d5b35e0962a4f632cbd19">name</a>);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>};</div>
+</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_event_group_8h_html"><div class="ttname"><a href="_event_group_8h.html">EventGroup.h</a></div></div>
+<div class="ttc" id="aclass_event_component_html_a82348aef118d5b35e0962a4f632cbd19"><div class="ttname"><a href="class_event_component.html#a82348aef118d5b35e0962a4f632cbd19">EventComponent::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> EventComponent.h:10</div></div>
+<div class="ttc" id="aclass_event_group_html_a520ed7b96db42bd580a447dbb6d1470e"><div class="ttname"><a href="class_event_group.html#a520ed7b96db42bd580a447dbb6d1470e">EventGroup::EventGroup</a></div><div class="ttdeci">EventGroup(const std::string &amp;name)</div><div class="ttdoc">Constructs an empty group with the given name.</div><div class="ttdef"><b>Definition</b> EventGroup.cpp:31</div></div>
+<div class="ttc" id="aclass_race_zone_html_a238323c8a1b33d4d07305e1715ff942c"><div class="ttname"><a href="class_race_zone.html#a238323c8a1b33d4d07305e1715ff942c">RaceZone::RaceZone</a></div><div class="ttdeci">RaceZone(const std::string &amp;name)</div><div class="ttdoc">Concrete Composite: a large area of the event that groups one or more course sectors and/or directly-...</div><div class="ttdef"><b>Definition</b> RaceZone.cpp:9</div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="_race_zone_8h.html">RaceZone.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
