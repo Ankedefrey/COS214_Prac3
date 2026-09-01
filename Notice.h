@@ -12,9 +12,8 @@ private:
     int severity;
 
 public:
-    Notice(NoticeType type,
-           const std::string& message,
-           int severity = 1);
+    Notice(NoticeType type, const std::string& message,
+            int severity = 1);
 
     NoticeType getType() const;
     std::string getMessage() const;
