@@ -5,6 +5,14 @@
 
 #include <string>
 
+/**
+ * @brief GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).
+ * Deliberately stays active through most notices (including EVACUATE and
+ * WEATHER_ALERT) where other leaves pause or close, since a medical tent
+ * needs to remain available for casualties precisely when other units are
+ * suspending service.
+ */
+
 class MedicalTent : public EventComponent {
 private:
     int bedsAvailable;

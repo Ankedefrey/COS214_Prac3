@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jezelle_20_3a_0',['Composite Pattern (Jezelle):',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]]
+  ['lowstockthreshold_0',['lowStockThreshold',['../class_aid_station.html#a9f2b5aacbbca78437fee61e273dbb2e7',1,'AidStation']]]
 ];

@@ -5,6 +5,12 @@
 
 #include <string>
 
+/**
+ * @brief GoF ConcreteSubject: the central control point for the event.
+ *
+ */
+
+
 class EventComponent : public Observer {
 protected:
     std::string name;

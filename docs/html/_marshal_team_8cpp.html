@@ -113,14 +113,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_marshal_team_
 </div><!--header-->
 <div class="contents">
 
-<p>Concrete Leaf: a team of marshals responsible for runner safety. This is an implementation of <a class="el" href="class_marshal_team.html">MarshalTeam</a> that provides safety during the race.  
+<p>GoF role: ConcreteComponent (Composite) and ConcreteObserver (<a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a>), with an extra ability of its own, it can originate a HAZARD_ALERT <a class="el" href="class_notice.html">Notice</a> via createHazardNotice() rather than only ever reacting to notices issued by <a class="el" href="class_event_control.html" title="GoF ConcreteSubject: the central control point for the event.">EventControl</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_marshal_team_8h_source.html">MarshalTeam.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_notice_8h_source.html">Notice.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 </div><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Concrete Leaf: a team of marshals responsible for runner safety. This is an implementation of <a class="el" href="class_marshal_team.html">MarshalTeam</a> that provides safety during the race. </p>
-<p>GoF role: ConcreteComponent (Composite) and ConcreteObserver (<a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a>), with an extra ability of its own, it can originate a HAZARD_ALERT <a class="el" href="class_notice.html">Notice</a> via createHazardNotice() rather than only ever reacting to notices issued by <a class="el" href="class_event_control.html">EventControl</a>.</p>
+<div class="textblock"><p>GoF role: ConcreteComponent (Composite) and ConcreteObserver (<a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a>), with an extra ability of its own, it can originate a HAZARD_ALERT <a class="el" href="class_notice.html">Notice</a> via createHazardNotice() rather than only ever reacting to notices issued by <a class="el" href="class_event_control.html" title="GoF ConcreteSubject: the central control point for the event.">EventControl</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Jezelle Govender </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

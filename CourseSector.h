@@ -6,6 +6,11 @@
 
 #include <string>
 
+/**
+ * @brief Concrete Composite: a sector of the course with a specific
+ *        terrain type, grouping the leaf units that operate within it
+ */
+
 class CourseSector : public EventGroup {
 private:
     TerrainType terrainType;

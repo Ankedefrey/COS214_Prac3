@@ -7,6 +7,11 @@
 #include <string>
 #include <vector>
 
+/**
+ * @brief GoF Composite role, and also a concrete Subject.
+ * Implementation of the EventGroup that manages EventComponent children and deals with ownership.
+ */
+
 class EventGroup : public EventComponent, public Subject {
 private:
     std::vector<EventComponent*> children;

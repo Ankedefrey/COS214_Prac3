@@ -114,16 +114,60 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md__r_e_a_d_m_
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
-Team Members</h1>
+EventFlow - Mixed Terrain Race 2026</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Team Members</h2>
 <ul>
 <li>Jezelle Govender u25176383</li>
 <li>Anke de Frey u24611400</li>
-<li>Kayla Falconer</li>
+<li>Kayla Falconer u25006747</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
-Composite Pattern (Jezelle):</h1>
-<p>Leaves- each have meaningfully different output/behaviour:</p>
-<p>AidStation- Feeds and hydrates runners. It states are stock levels and serving. MarsahlTeam- Safety and crowd control, it manages hazards. <a class="el" href="class_medical_tent.html">MedicalTent</a> - Emergency medical services. Remains active during emergencies. <a class="el" href="class_start_gate.html">StartGate</a> - Controls the race starts. Pauses during weather alerts. <a class="el" href="class_timing_point.html">TimingPoint</a> - Records runner times. Switches to backup mode. </p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Event Concept</h2>
+<p>EventFlow coordinates the Mixed Terrain Race 2026, a single-day running event across tar, forest and gravel terrain. It provides a live view of operational areas and distributes notices about capacity, weather, hazards, evacuations and missed cutoffs without needing to know each unit’s concrete type.</p>
+<p>The race contains a Start-Fisnish Zone, holding the Tar Start Sector and Main Medical tent, and a Course Zone, holding the Forest and Gravel Sectors. This creates the hierarchy: <a class="el" href="class_race_event.html" title="Concrete Composite: the root of the whole event tree.">RaceEvent</a> -&gt; <a class="el" href="class_race_zone.html" title="Concrete Composite: a large area of the event that groups one or more course sectors and/or directly-...">RaceZone</a> -&gt; <a class="el" href="class_course_sector.html" title="Concrete Composite: a sector of the course with a specific terrain type, grouping the leaf units that...">CourseSector</a> -&gt; event units <a class="el" href="class_event_control.html" title="GoF ConcreteSubject: the central control point for the event.">EventControl</a> owns the tree's root and introduces notices that cascade through registered zones, sectors and units.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Building and Running</h2>
+<div class="fragment"><div class="line">make</div>
+<div class="line">./eventflow</div>
+<div class="line">make clean  # removes all object files and the executable</div>
+</div><!-- fragment --> <h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Doxygen</h2>
+<div class="fragment"><div class="line">doxygen Doxyfile</div>
+</div><!-- fragment --><p> This produces a 'docs/html' directory</p><ul>
+<li>open 'docs/html/index.html' in a browser to view the generated documentation.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Architecture Overview</h2>
+<p>EventFlow is built on two collaborating GoF design patterns.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Composite Pattern:</h2>
+<p>The Composite pattern models the event as a part-whole tree: <a class="el" href="class_event_component.html" title="GoF ConcreteSubject: the central control point for the event.">EventComponent</a> is the abstract Component, <a class="el" href="class_event_group.html" title="GoF Composite role, and also a concrete Subject. Implementation of the EventGroup that manages EventC...">EventGroup</a> is the Composite (<a class="el" href="class_race_event.html" title="Concrete Composite: the root of the whole event tree.">RaceEvent</a>, <a class="el" href="class_race_zone.html" title="Concrete Composite: a large area of the event that groups one or more course sectors and/or directly-...">RaceZone</a>, <a class="el" href="class_course_sector.html" title="Concrete Composite: a sector of the course with a specific terrain type, grouping the leaf units that...">CourseSector</a>), and five concrete Leaf classes carry out the actual work at the bottom of the tree. Every leaf reacts differently to the same operations and notices — each has a genuinely distinct role and internal state:</p>
+<ul>
+<li><b><a class="el" href="class_start_gate.html" title="GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).">StartGate</a></b> — Controls the start of the race and admits runners in batches. Pauses admissions during weather alerts.</li>
+<li><b><a class="el" href="class_timing_point.html" title="GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer). Switches to backupMode durin...">TimingPoint</a></b> — Records runner passages and checkpoint times, enforcing a cutoff. Switches to backup mode rather than stopping outright during weather/safety alerts.</li>
+<li><b><a class="el" href="class_medical_tent.html" title="GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer). Deliberately stays active th...">MedicalTent</a></b> — Provides emergency medical services. Deliberately remains active during evacuations and weather alerts, when other units are pausing or closing.</li>
+<li><b><a class="el" href="class_aid_station.html" title="Concrete Leaf: a hydration/nutrition station serving runners. GoF role: ConcreteComponent (Composite)...">AidStation</a></b> — Feeds and hydrates runners; tracks its own stock levels and serving load, and monitors for low supply.</li>
+<li><b><a class="el" href="class_marshal_team.html" title="GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer), with an extra ability of its...">MarshalTeam</a></b> — Handles safety and crowd control on the course; manages hazards and can itself report one.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Observer Pattern:</h2>
+<p>The <a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a> pattern lets the event's control structures push notices (weather alerts, capacity warnings, evacuations, etc.) down through the tree without any <a class="el" href="class_subject.html" title="GoF Subject role: something that can be observed A Subject keeps a list of registered Observer pointe...">Subject</a> ever needing to know the concrete type of what it's talking to.</p>
+<ul>
+<li><a class="el" href="class_subject.html" title="GoF Subject role: something that can be observed A Subject keeps a list of registered Observer pointe...">Subject</a> (<a class="el" href="class_subject.html" title="GoF Subject role: something that can be observed A Subject keeps a list of registered Observer pointe...">Subject</a>) — abstract interface for observers to attach/detach, and for a subject to issue notices to them.</li>
+<li><a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a> (<a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a>) — abstract interface for anything that reacts to a notice.</li>
+<li>ConcreteSubject (<a class="el" href="class_event_control.html" title="GoF ConcreteSubject: the central control point for the event.">EventControl</a>) — creates and issues notices to its registered observers.</li>
+<li>ConcreteSubject (<a class="el" href="class_event_group.html" title="GoF Composite role, and also a concrete Subject. Implementation of the EventGroup that manages EventC...">EventGroup</a>) — forwards notices it receives to all of its own registered observers (its children).</li>
+<li>ConcreteObserver (<a class="el" href="class_race_event.html" title="Concrete Composite: the root of the whole event tree.">RaceEvent</a>) — represents the whole race, owned by <a class="el" href="class_event_control.html" title="GoF ConcreteSubject: the central control point for the event.">EventControl</a>, receives notices from it and forwards them to its RaceZones.</li>
+<li>ConcreteObserver (<a class="el" href="class_race_zone.html" title="Concrete Composite: a large area of the event that groups one or more course sectors and/or directly-...">RaceZone</a>) — represents a major operational area, receives notices from <a class="el" href="class_race_event.html" title="Concrete Composite: the root of the whole event tree.">RaceEvent</a> and forwards them to its CourseSectors.</li>
+<li>ConcreteObserver (<a class="el" href="class_course_sector.html" title="Concrete Composite: a sector of the course with a specific terrain type, grouping the leaf units that...">CourseSector</a>) — represents a specific terrain zone, receives notices from <a class="el" href="class_race_zone.html" title="Concrete Composite: a large area of the event that groups one or more course sectors and/or directly-...">RaceZone</a> and forwards them to its leaf observers.</li>
+<li>ConcreteObserver (<a class="el" href="class_start_gate.html" title="GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).">StartGate</a>) — manages runner admissions, reacts to notices.</li>
+<li>ConcreteObserver (<a class="el" href="class_medical_tent.html" title="GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer). Deliberately stays active th...">MedicalTent</a>) — provides and prepares medical services during emergencies.</li>
+<li>ConcreteObserver (<a class="el" href="class_marshal_team.html" title="GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer), with an extra ability of its...">MarshalTeam</a>) — provides safety and route management, responds to hazards.</li>
+<li>ConcreteObserver (<a class="el" href="class_aid_station.html" title="Concrete Leaf: a hydration/nutrition station serving runners. GoF role: ConcreteComponent (Composite)...">AidStation</a>) — serves runners with hydration/nutrition, monitors its own stock levels.</li>
+<li>ConcreteObserver (<a class="el" href="class_timing_point.html" title="GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer). Switches to backupMode durin...">TimingPoint</a>) — records runner passages and checks cutoff times.</li>
+</ul>
+<p><a class="el" href="class_event_group.html" title="GoF Composite role, and also a concrete Subject. Implementation of the EventGroup that manages EventC...">EventGroup</a> plays both ConcreteSubject and ConcreteObserver at once — it is told about a notice from its own parent (<a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a> role) and separately forwards that notice to its own children (<a class="el" href="class_subject.html" title="GoF Subject role: something that can be observed A Subject keeps a list of registered Observer pointe...">Subject</a> role), via two independent lists (children for ownership, observers for notification). </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

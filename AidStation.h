@@ -5,6 +5,14 @@
 
 #include <string>
 
+/**
+ * @brief Concrete Leaf: a hydration/nutrition station serving runners.
+ * GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer,
+ * inherited via EventComponent)
+ * it reacts to notices such as WEATHER_ALERT, SUPPLY_ALERT, EVACUATE and HAZARD_ALERT differently from
+ * every other leaf type in the system.
+ */
+
 class AidStation : public EventComponent {
 private:
     int stockLevel;
@@ -12,10 +20,7 @@ private:
     bool isServing;
 
 public:
-    AidStation(const std::string& name,
-               int capacity,
-               int stock,
-               int threshold);
+    AidStation(const std::string& name, int capacity, int stock, int threshold);
 
     void open() override;
     void close() override;

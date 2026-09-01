@@ -7,9 +7,14 @@
 #include <string>
 #include <vector>
 
+
 class EventComponent;
 class Notice;
 class Observer;
+
+/**
+ * @brief GoF ConcreteSubject: the central control point for the event.
+ */
 
 class EventControl : public Subject {
 private:

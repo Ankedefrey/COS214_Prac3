@@ -113,6 +113,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_medical_
 </div><!--header-->
 <div class="contents">
 
+<p>GoF role: ConcreteComponent (Composite) and ConcreteObserver (<a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a>). Deliberately stays active through most notices (including EVACUATE and WEATHER_ALERT) where other leaves pause or close, since a medical tent needs to remain available for casualties precisely when other units are suspending service.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_medical_tent_8h_source.html">MedicalTent.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MedicalTent:</div>
@@ -120,7 +123,7 @@ Inheritance diagram for MedicalTent:</div>
  <div class="center">
   <img src="class_medical_tent.png" usemap="#MedicalTent_map" alt=""/>
   <map id="MedicalTent_map" name="MedicalTent_map">
-<area href="class_event_component.html" alt="EventComponent" shape="rect" coords="0,56,107,80"/>
+<area href="class_event_component.html" title="GoF ConcreteSubject: the central control point for the event." alt="EventComponent" shape="rect" coords="0,56,107,80"/>
 <area href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice." alt="Observer" shape="rect" coords="0,0,107,24"/>
   </map>
 </div></div>
@@ -164,7 +167,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ae4b041c98bc58d53783231ae2e8f626b pro_attribs_class_event_component" id="r_ae4b041c98bc58d53783231ae2e8f626b"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="class_event_component.html#ae4b041c98bc58d53783231ae2e8f626b">capacity</a></td></tr>
 <tr class="memitem:a77065d15c38b66cc7ae72159fe3755b7 pro_attribs_class_event_component" id="r_a77065d15c38b66cc7ae72159fe3755b7"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="class_event_component.html#a77065d15c38b66cc7ae72159fe3755b7">currentLoad</a></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>GoF role: ConcreteComponent (Composite) and ConcreteObserver (<a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a>). Deliberately stays active through most notices (including EVACUATE and WEATHER_ALERT) where other leaves pause or close, since a medical tent needs to remain available for casualties precisely when other units are suspending service. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa51dea9882a3a1a225a3226a7761b675" name="aa51dea9882a3a1a225a3226a7761b675"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa51dea9882a3a1a225a3226a7761b675">&#9670;&#160;</a></span>MedicalTent()</h2>
 

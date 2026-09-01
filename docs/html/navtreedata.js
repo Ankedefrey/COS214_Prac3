@@ -26,8 +26,15 @@ var NAVTREE =
 [
   [ "EventFlow", "index.html", [
     [ "COS214_Prac3", "md__r_e_a_d_m_e.html", [
-      [ "Team Members", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
-      [ "Composite Pattern (Jezelle):", "md__r_e_a_d_m_e.html#autotoc_md2", null ]
+      [ "EventFlow - Mixed Terrain Race 2026", "md__r_e_a_d_m_e.html#autotoc_md1", [
+        [ "Team Members", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
+        [ "Event Concept", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
+        [ "Building and Running", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
+        [ "Doxygen", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
+        [ "Architecture Overview", "md__r_e_a_d_m_e.html#autotoc_md6", null ],
+        [ "Composite Pattern:", "md__r_e_a_d_m_e.html#autotoc_md7", null ],
+        [ "Observer Pattern:", "md__r_e_a_d_m_e.html#autotoc_md8", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],

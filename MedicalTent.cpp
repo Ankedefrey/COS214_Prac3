@@ -1,9 +1,6 @@
 /**
  * @file MedicalTent.cpp
- * @brief Concrete Leaf: emergency medical services for the event.
- * Implementation of the MedicalTent that provides emergency medical services in the race.
- *
- * GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).
+ * @brief GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).
  * Deliberately stays active through most notices (including EVACUATE and
  * WEATHER_ALERT) where other leaves pause or close, since a medical tent
  * needs to remain available for casualties precisely when other units are

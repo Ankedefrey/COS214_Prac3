@@ -6,6 +6,14 @@
 
 #include <string>
 
+/**
+ * @brief GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer),
+ * with an extra ability of its own,
+ * it can originate a HAZARD_ALERT Notice via createHazardNotice() rather than only ever reacting to
+ * notices issued by EventControl.
+
+ */
+
 class MarshalTeam : public EventComponent {
 private:
     int teamSize;

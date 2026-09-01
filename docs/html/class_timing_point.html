@@ -113,6 +113,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_timing_p
 </div><!--header-->
 <div class="contents">
 
+<p>GoF role: ConcreteComponent (Composite) and ConcreteObserver (<a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a>). Switches to backupMode during a WEATHER_ALERT/EVACUATE rather than stopping recording outright - its distinct reaction compared to a leaf like <a class="el" href="class_start_gate.html" title="GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).">StartGate</a>, which pauses entirely.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_timing_point_8h_source.html">TimingPoint.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for TimingPoint:</div>
@@ -120,7 +123,7 @@ Inheritance diagram for TimingPoint:</div>
  <div class="center">
   <img src="class_timing_point.png" usemap="#TimingPoint_map" alt=""/>
   <map id="TimingPoint_map" name="TimingPoint_map">
-<area href="class_event_component.html" alt="EventComponent" shape="rect" coords="0,56,107,80"/>
+<area href="class_event_component.html" title="GoF ConcreteSubject: the central control point for the event." alt="EventComponent" shape="rect" coords="0,56,107,80"/>
 <area href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice." alt="Observer" shape="rect" coords="0,0,107,24"/>
   </map>
 </div></div>
@@ -166,7 +169,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ae4b041c98bc58d53783231ae2e8f626b pro_attribs_class_event_component" id="r_ae4b041c98bc58d53783231ae2e8f626b"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="class_event_component.html#ae4b041c98bc58d53783231ae2e8f626b">capacity</a></td></tr>
 <tr class="memitem:a77065d15c38b66cc7ae72159fe3755b7 pro_attribs_class_event_component" id="r_a77065d15c38b66cc7ae72159fe3755b7"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="class_event_component.html#a77065d15c38b66cc7ae72159fe3755b7">currentLoad</a></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>GoF role: ConcreteComponent (Composite) and ConcreteObserver (<a class="el" href="class_observer.html" title="GoF Observer role: anything that wants to react to a Notice.">Observer</a>). Switches to backupMode during a WEATHER_ALERT/EVACUATE rather than stopping recording outright - its distinct reaction compared to a leaf like <a class="el" href="class_start_gate.html" title="GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).">StartGate</a>, which pauses entirely. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abc9c4643ea9e2e4aeca76629edd8074e" name="abc9c4643ea9e2e4aeca76629edd8074e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc9c4643ea9e2e4aeca76629edd8074e">&#9670;&#160;</a></span>TimingPoint()</h2>
 

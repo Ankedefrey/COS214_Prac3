@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jezelle_20_3a_0',['Composite Pattern (Jezelle):',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]]
+  ['building_20and_20running_0',['Building and Running',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]]
 ];

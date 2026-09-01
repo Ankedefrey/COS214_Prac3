@@ -1,9 +1,6 @@
 /**
  * @file MarshalTeam.cpp
- * @brief Concrete Leaf: a team of marshals responsible for runner safety.
- * This is an implementation of MarshalTeam that provides safety during the race.
- *
- * GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer),
+ * @brief GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer),
  * with an extra ability of its own,
  * it can originate a HAZARD_ALERT Notice via createHazardNotice() rather than only ever reacting to
  * notices issued by EventControl.

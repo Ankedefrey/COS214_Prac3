@@ -5,6 +5,13 @@
 
 #include <string>
 
+/**
+ * @brief GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).
+ * Switches to backupMode during a WEATHER_ALERT/EVACUATE rather than
+ * stopping recording outright - its distinct reaction compared to a leaf
+ * like StartGate, which pauses entirely.
+ */
+
 class TimingPoint : public EventComponent {
 private:
     int checkpointNumber;

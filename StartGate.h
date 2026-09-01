@@ -5,6 +5,10 @@
 
 #include <string>
 
+/**
+ * @brief GoF role: ConcreteComponent (Composite) and ConcreteObserver (Observer).
+ */
+
 class StartGate : public EventComponent {
 private:
     int batchSize;
